@@ -13,6 +13,8 @@ const Board=()=>{
 
     const [turn,setTurn]=useState('w')
     const {appState}=useAppContext()
+    const [dropped, setDropped] = useState([]);
+
     const position=appState.position[appState.position.length-1]
 
     // for(var i=0;i<position.length;i++){
@@ -34,6 +36,8 @@ const Board=()=>{
             <Dropzone
             turn={turn}
             setTurn={setTurn}
+            dropped = {dropped}
+            setDropped={setDropped}
             />
             <div className="Board">
 
@@ -46,6 +50,8 @@ const Board=()=>{
                 <Pieces
                 turn={turn}
                 setTurn={setTurn}
+                dropped={dropped}
+                setDropped={setDropped}
                 />
 
                 <Files files={files}/>

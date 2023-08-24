@@ -5,9 +5,9 @@ import ActiveCoin from './ActiveCoin';
 import Winner from './Winner';
 import { turn } from '../../reducer/reducer'
 
-const DropZone = ({turn,setTurn}) => {
+const DropZone = ({turn,setTurn,dropped,setDropped}) => {
   const [winner,setWinner]=useState();
-  const [dropped, setDropped] = useState([]);
+  // const [dropped, setDropped] = useState([]);
   
 
   const root = document.documentElement;
@@ -42,7 +42,7 @@ const DropZone = ({turn,setTurn}) => {
 
   useEffect(()=>{
      findWinner()
-  },[dropped.length])
+  },[dropped])
 
   return (
     <div className='drop-zone'>

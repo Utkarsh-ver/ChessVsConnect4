@@ -12,13 +12,12 @@ const ActiveMarble = ({ turn, dropped, setDropped, setTurn }) => {
 
   var position=appState.position[appState.position.length-1]
 
-  // console.log(column)
+  
 
   const handleKeyDown = (e) => {
 
     console.log(turn)
     if(turn === 'b'){
-      console.log('hagdiya')
       return;
     }
     if (e.keyCode === 37 && column > 0) {
