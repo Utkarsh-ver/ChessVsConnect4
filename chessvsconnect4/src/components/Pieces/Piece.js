@@ -19,10 +19,10 @@ const Piece=({
         setTimeout(()=>{
         e.target.style.display='none'
         },0)
-        if(turn===piece[0]){
+        // if(turn===piece[0]){
             const candidateMoves=arbiter.getRegularMoves({position:currentPosition,piece,rank,file})
             dispatch(generateCandidateMoves({candidateMoves}))
-         }
+        //  }
     }
 
 

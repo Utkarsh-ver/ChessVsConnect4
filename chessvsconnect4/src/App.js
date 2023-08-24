@@ -17,7 +17,6 @@ function App() {
   return (
     <AppContext.Provider value={ providerState}> 
     <div className="App">
-      <DropZone/>
       <Board/>
     </div>
     </AppContext.Provider>

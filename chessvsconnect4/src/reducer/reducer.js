@@ -5,29 +5,29 @@ export const reducer=(state,action)=>{
         case actionTypes.NEW_MOVE:{
             
             
-            // let {turn,position} =state
-            let { turn, newPosition } = action.payload;
+            let {turn,position} =state
+            // let { turn, newPosition } = action.payload;
 
             
-            // turn = turn==='b'?'w':'b'
-            let newTurn = turn === 'w' ? 'b' : 'w';
+            turn = turn==='b'?'c':'b'
+            // let newTurn = turn === 'w' ? 'b' : 'w';
             
             
-            // position=[
-            //     ...position,
-            //     action.payload.newPosition
-            // ]
+            position=[
+                ...position,
+                action.payload.newPosition
+            ]
             
-            // return{
-            //     ...state,
-            //     turn,
-            //     position
-            // }
-            return {
+            return{
                 ...state,
-                turn: newTurn,
-                position: [...state.position, newPosition]
-              };
+                turn,
+                position
+            }
+            // return {
+            //     ...state,
+            //     turn: newTurn,
+            //     position: [...state.position, newPosition]
+            //   };
         }
         
         case actionTypes.GENERATE_CANDIDATE_MOVES:{

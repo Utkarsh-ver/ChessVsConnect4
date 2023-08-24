@@ -1,34 +1,55 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import actionTypes from "../../reducer/actionTypes"
+import { useAppContext } from '../../context/Context'
+import { clearCandidates, makeNewMove } from '../../reducer/actions/move'
+
 
 const ActiveMarble = ({ turn, dropped, setDropped, setTurn }) => {
-  const [column, setColumn] = useState();
+  const [column, setColumn] = useState(0);
   const [row, setRow] = useState();
-  const dispatch=useDispatch
+  const {appState,dispatch}=useAppContext()
+
+  var position=appState.position[appState.position.length-1]
+
+  // console.log(column)
 
   const handleKeyDown = (e) => {
 
+    console.log(turn)
+    if(turn === 'b'){
+      console.log('hagdiya')
+      return;
+    }
     if (e.keyCode === 37 && column > 0) {
       setColumn(column - 1);
     } else if (e.keyCode === 39) {
-      if (column === undefined) setColumn(1);
+      if (column === undefined) setColumn(0);
       else if (column < 8) setColumn(column + 1);
     } else if (e.keyCode === 32 || e.keyCode === 13) {
+      
       if (dropped.find((drop) => drop.x === 0 && drop.y === (column || 0))) {
         return;
       } else {
-        const len = 7 - dropped.filter((drop) => drop.y === (column || 0)).length;
+        setTurn('b')
+        
+        var len = 0;
+        while(len < 8 && position[7-len][(column || 0)] === ''){
+          console.log(position[7-len][(column || 0)])
+          len = len+1
+        }
+        len = len-1;
+        if(len == 8)return;
         setRow(len);
-        // setTimeout(() => {
-        //   setDropped([
-        //     ...dropped,
-        //     { x: len || 0, y: column || 0, player: turn },
-        //   ]);
-        //   setTurn(turn ==='w'?'w':'b')
-        // }, 500);
-        let newTurn = turn === 'b' ? 'w' : 'b';
-        setTurn(newTurn);
+        // if(count===2)
+        setTimeout(() => {
+          position[7-len][(column || 0)] = 'c'
+          // dispatch(makeNewMove({newPosition}))
+          setDropped([
+            ...dropped,
+            { x: len || 0, y: column || 0, player: turn },
+          ]);
+        }, 500);
 
         let newPosition = [
           ...dropped,
@@ -41,13 +62,13 @@ const ActiveMarble = ({ turn, dropped, setDropped, setTurn }) => {
         
 
     // Dispatch the NEW_MOVE action with updated values
-     dispatch({
-      type: actionTypes.NEW_MOVE,
-      payload: {
-        newPosition,
-        turn: newTurn,
-      },
-    });
+    //  dispatch({
+    //   type: actionTypes.NEW_MOVE,
+    //   payload: {
+    //     newPosition,
+    //     turn: newTurn,
+    //   },
+    // });
         
       }
     }

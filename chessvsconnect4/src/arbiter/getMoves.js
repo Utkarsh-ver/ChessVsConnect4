@@ -18,7 +18,7 @@ export const getRookMoves=({position,piece,rank,file})=>{
             if(position?.[x]?.[y]===undefined)
             break
         
-        if(position[x][y].startsWith(us))
+        if(position[x][y] !== '')
         break
 
         moves.push([x,y])
@@ -42,7 +42,7 @@ export const getKnightMoves = ({position,rank,file}) => {
     ]
     candidates.forEach(c => {
         const cell = position?.[rank+c[0]]?.[file+c[1]]
-        if(cell !== undefined || cell === '' ){
+        if(cell !== undefined && cell === ''){
             moves.push ([rank+c[0],file+c[1]])
         }
     })
@@ -68,7 +68,7 @@ export const getBishopMoves = ({position,piece,rank,file}) => {
             if(position?.[x]?.[y] === undefined)
                 break
             
-            if(position[x][y].startsWith(us)){
+            if(position[x][y] !== ''){
                 break
             }
             moves.push ([x,y])
@@ -98,7 +98,7 @@ export const getKingMoves = ({position,piece,rank,file}) => {
     direction.forEach(dir => {
         const x = rank+dir[0]
         const y = file+dir[1]
-        if(position?.[x]?.[y] !== undefined && !position[x][y].startsWith(us))
+        if(position?.[x]?.[y] !== undefined && position[x][y] !== '')
         moves.push ([x,y])
     })
     return moves

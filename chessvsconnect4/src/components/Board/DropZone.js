@@ -5,8 +5,7 @@ import ActiveCoin from './ActiveCoin';
 import Winner from './Winner';
 import { turn } from '../../reducer/reducer'
 
-const DropZone = () => {
-  const [turn,setTurn]=useState("w")
+const DropZone = ({turn,setTurn}) => {
   const [winner,setWinner]=useState();
   const [dropped, setDropped] = useState([]);
   
@@ -37,7 +36,7 @@ const DropZone = () => {
                 p1.find(m => x === m.x + 3 && y === m.y - 3)
             )
             setWinner('w')
-           
+          
         })
    }
 
@@ -64,7 +63,7 @@ const DropZone = () => {
       
       setDropped={setDropped}
       setTurn={setTurn}
-     
+
       />}
 
      

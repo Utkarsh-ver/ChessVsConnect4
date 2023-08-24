@@ -1,5 +1,6 @@
 .pieces {
     position: absolute;
+    
     left: calc(2.95*var(--tile-size));
     width: calc(8*var(--tile-size));
     height: calc(8*var(--tile-size));

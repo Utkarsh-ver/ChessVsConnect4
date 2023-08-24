@@ -4,7 +4,7 @@ import {useState,useRef} from 'react'
 import { createPosition,copyPosition}  from '../../helper.js'
 import { clearCandidates, makeNewMove } from '../../reducer/actions/move'
 import { useAppContext } from '../../context/Context'
-const  Pieces=()=>{
+const  Pieces=({turn,setTurn})=>{
     
     const ref=useRef()
     const {appState,dispatch}=useAppContext()
@@ -22,17 +22,21 @@ const  Pieces=()=>{
     
 
     const onDrop=e=>{
+        if(turn === 'w')return;
         const newPosition=copyPosition(currentPosition)
         const{x,y}=calculateCoords(e)
         const[p,rank,file]=e.dataTransfer.getData('text').split(',')
-
+        
         if(appState.candidateMoves?.find(m=>m[0]===x && m[1]===y)){
+            
+            newPosition[rank][file]=''
+            newPosition[x][y]=p
+        
+            
+            dispatch(makeNewMove({newPosition}))
+          
 
-        newPosition[rank][file]=''
-        newPosition[x][y]=p
-         
-
-       dispatch(makeNewMove({newPosition}))
+            setTurn('w')
         }
 
         dispatch(clearCandidates())

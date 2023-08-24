@@ -13,7 +13,7 @@
     height: var(--size);
     border-radius: 50%;
     position: absolute;
-    background-color: rgb(210, 210, 211);
+    background-color: rgba(187, 246, 246, 0.74);
 
     
 }
