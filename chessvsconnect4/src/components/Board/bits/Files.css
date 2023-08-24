@@ -1,0 +1,9 @@
+.files{
+    grid-column:2;
+    display:flex;
+    flex-direction: row;
+    align-items:center;
+    justify-content: space-around;
+    color:var(--dark-tile);
+    height: calc(.25*var(--tile-size)); 
+}

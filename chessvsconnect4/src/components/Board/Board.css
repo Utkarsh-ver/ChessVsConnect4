@@ -1,0 +1,34 @@
+.Board {
+    display: grid;
+    grid-template-columns: calc(.25*var(--tile-size))calc(8*var(--tile-size));
+
+}
+
+.tiles {
+    display: grid;
+    grid-template-columns: repeat(8, var(--tile-size));
+    grid-template-rows: repeat(8, var(--tile-size));
+    width: calc(8*var(--tile-size));
+}
+
+
+
+.tile--light {
+    background: var(--light-tile);
+}
+
+.tile--dark {
+    background: var(--dark-tile);
+} 
+.highlight:after {
+    content: '';
+    display: absolute;
+    position: absolute;
+    width: calc(.5*var(--tile-size));
+    height: calc(.5*var(--tile-size));
+    background-color: var(--highlight);
+    border-radius: 50%;
+    left: 25%;
+    top: 25%;
+
+}  
