@@ -2,7 +2,7 @@
     position: absolute;
     top: 50%;       
     left: 50%;       
-    transform: translate(-48.5%, -32%); 
+    transform: translate(-48.5%, -30%); 
     width: calc(8*var(--tile-size));
     height: calc(8*var(--tile-size));
   }

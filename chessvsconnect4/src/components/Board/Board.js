@@ -48,7 +48,7 @@ const Board=()=>{
                 setTurn={setTurn}
                 dropped={dropped}
                 setDropped={setDropped}
-                /><div className='text'>BATTLEGRID</div>
+                />
 
                 <Files files={files}/>
             </div>

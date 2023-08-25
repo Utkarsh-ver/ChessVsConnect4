@@ -54,7 +54,7 @@ const DropZone = ({turn,setTurn,dropped,setDropped}) => {
           key={i}
           className={`p${m.player}`}
           style={{
-            transform: `translate(${m.y * parseFloat(size)}px, ${m.x * parseFloat(size)+150}px)`,
+            transform: `translate(${m.y * parseFloat(size)}vh, ${m.x * parseFloat(size)+15}vh)`,
           }}
         />
       ))}
