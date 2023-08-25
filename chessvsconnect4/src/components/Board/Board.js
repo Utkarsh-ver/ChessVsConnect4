@@ -17,11 +17,6 @@ const Board=()=>{
 
     const position=appState.position[appState.position.length-1]
 
-    // for(var i=0;i<position.length;i++){
-    //     for(var j=0;j<position[0].length;j++){
-    //         console.log(position[i][j]);
-    //     }
-    // }
 
     const getClassName=(i,j)=>{
         let c='tile '
@@ -39,20 +34,21 @@ const Board=()=>{
             dropped = {dropped}
             setDropped={setDropped}
             />
-            <div className="Board">
-
+            <div className="Board" >
                 <Rank ranks={ranks}/>
                 <div className="tiles">
                     {ranks.map((rank,i)=>
                     files.map((file,j)=>
-                    <div key={file+'-'+rank} className={getClassName(7-i,j)}></div>))}
+                    <div key={file+'-'+rank} className={getClassName(7-i,j)}>
+                    </div>))}
                 </div>
+                
                 <Pieces
                 turn={turn}
                 setTurn={setTurn}
                 dropped={dropped}
                 setDropped={setDropped}
-                />
+                /><div className='text'>BATTLEGRID</div>
 
                 <Files files={files}/>
             </div>

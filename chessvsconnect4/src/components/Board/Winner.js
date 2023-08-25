@@ -1,5 +1,6 @@
+
 const Winner=({winner})=>{
-    return <div>player {winner} has won</div>
+    return <div className="winner"> Congratulations! Player {winner} has WON</div>
 }
 
 export default Winner

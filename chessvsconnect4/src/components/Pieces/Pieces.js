@@ -17,6 +17,7 @@ const  Pieces=({turn,setTurn,dropped,setDropped})=>{
         return{x,y}
 
     }
+    
 
 
     

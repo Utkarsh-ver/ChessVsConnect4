@@ -1,16 +1,11 @@
 .pieces {
     position: absolute;
-    
-    left: calc(2.95*var(--tile-size));
+    top: 50%;       
+    left: 50%;       
+    transform: translate(-48.5%, -32%); 
     width: calc(8*var(--tile-size));
     height: calc(8*var(--tile-size));
-    
-     /* Same dark brown color for the border */
-
-     
-
-
-}
+  }
 
 .piece {
     width: 12.5%;
@@ -22,6 +17,7 @@
 
 .piece.bb {
     background-image: url('../../assets/bb.png');
+    
 }
 
 .piece.bk {

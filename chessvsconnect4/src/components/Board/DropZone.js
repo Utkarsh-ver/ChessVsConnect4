@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import './DropZone.css';
 import '../../constants.css';
 import ActiveCoin from './ActiveCoin';
+import './DropZone.css';
 import Winner from './Winner';
 import { turn } from '../../reducer/reducer'
 
+
 const DropZone = ({turn,setTurn,dropped,setDropped}) => {
   const [winner,setWinner]=useState();
-  // const [dropped, setDropped] = useState([]);
+
   
 
   const root = document.documentElement;
-  const size = getComputedStyle(root).getPropertyValue('--size').trim(); // Get the size value
+  const size = getComputedStyle(root).getPropertyValue('--size').trim();
 
   const findWinner=()=> {
     const p1 = dropped.filter(d => d.player === 'w')
@@ -41,6 +42,8 @@ const DropZone = ({turn,setTurn,dropped,setDropped}) => {
    }
 
   useEffect(()=>{
+    // if(dropped.length===9)
+    //    setWinner('b')
      findWinner()
   },[dropped])
 

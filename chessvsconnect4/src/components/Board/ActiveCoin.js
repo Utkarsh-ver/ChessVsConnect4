@@ -40,35 +40,15 @@ const ActiveMarble = ({ turn, dropped, setDropped, setTurn }) => {
         len = len-1;
         if(len == 8)return;
         setRow(len);
-        // if(count===2)
         setTimeout(() => {
           position[7-len][(column || 0)] = 'c'
-          // dispatch(makeNewMove({newPosition}))
-          setDropped([
+          let newPosition = [
             ...dropped,
-            { x: len || 0, y: column || 0, player: turn },
-          ]);
-        }, 500);
-
-        let newPosition = [
-          ...dropped,
-          { x: len || 0, y: column || 0, player: turn }
-        ];
-
-        setDropped(newPosition);
-
-        // Dispatch the NEW_MOVE action with updated values
-        
-
-    // Dispatch the NEW_MOVE action with updated values
-    //  dispatch({
-    //   type: actionTypes.NEW_MOVE,
-    //   payload: {
-    //     newPosition,
-    //     turn: newTurn,
-    //   },
-    // });
-        
+            { x: len || 0, y: column || 0, player: turn }
+          ];
+  
+          setDropped(newPosition);
+        },500);
       }
     }
   };

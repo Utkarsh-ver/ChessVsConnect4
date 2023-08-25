@@ -5,7 +5,7 @@ export const reducer=(state,action)=>{
         case actionTypes.NEW_MOVE:{
             
             
-            let {turn,position} =state
+            let {turn,movesList,position} =state
             // let { turn, newPosition } = action.payload;
 
             
@@ -17,10 +17,14 @@ export const reducer=(state,action)=>{
                 ...position,
                 action.payload.newPosition
             ]
-            
+            movesList = [
+                ...movesList,
+                action.payload.newMove
+            ]
             return{
                 ...state,
                 turn,
+                movesList,
                 position
             }
             // return {
@@ -45,6 +49,21 @@ export const reducer=(state,action)=>{
             }
 
             
+        }
+        case actionTypes.TAKE_BACK : {
+            let {position,movesList,turn} = state 
+            if (position.length > 1){
+                position = position.slice(0,position.length-1)
+                movesList = movesList.slice(0,movesList.length-1)
+                turn = turn === 'b' ? 'w' : 'b'
+            }
+
+            return {
+                ...state,
+                position,
+                movesList,
+                turn,
+            }
         }
 
         default:
