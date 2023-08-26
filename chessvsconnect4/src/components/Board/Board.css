@@ -37,3 +37,10 @@
     left: 30%;
     top: 28%;
 }  
+.text{
+    position:absolute;
+    font-size: 500%;
+    font-family:fantasy;
+    transform: translate(64%,36%);
+    color:rgba(37, 29, 13, 0.331)
+}

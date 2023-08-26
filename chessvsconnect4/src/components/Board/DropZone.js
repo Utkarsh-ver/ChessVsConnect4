@@ -64,10 +64,8 @@ const DropZone = ({turn,setTurn,dropped,setDropped}) => {
       dropped={dropped}
       setDropped={setDropped}
       setTurn={setTurn}
-
       />}
 
-     
     </div>
   );
 };

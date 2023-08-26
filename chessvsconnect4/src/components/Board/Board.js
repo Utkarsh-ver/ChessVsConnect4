@@ -18,7 +18,6 @@ const Board=()=>{
 
     const position=appState.position[appState.position.length-1]
 
-
     const getClassName=(i,j)=>{
         let c='tile '
         c+=(i+j)%2===0?'tile--dark':'tile--light ' 
@@ -52,6 +51,7 @@ const Board=()=>{
                 />
 
                 <Files files={files}/>
+
             </div>
         </div>
 }
