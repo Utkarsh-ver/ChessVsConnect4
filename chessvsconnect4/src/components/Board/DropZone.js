@@ -4,6 +4,7 @@ import ActiveCoin from './ActiveCoin';
 import './DropZone.css';
 import Winner from './Winner';
 import { turn } from '../../reducer/reducer'
+import Buffer from './Buffer';
 
 
 const DropZone = ({turn,setTurn,dropped,setDropped}) => {
@@ -54,22 +55,20 @@ const DropZone = ({turn,setTurn,dropped,setDropped}) => {
           key={i}
           className={`p${m.player}`}
           style={{
-            transform: `translate(${m.y * parseFloat(size)}px, ${m.x * parseFloat(size)+150}px)`,
+            transform: `translate(${m.y * parseFloat(size)}vh, ${m.x * parseFloat(size)+15}vh)`,
           }}
         />
       ))}
       { (winner==='w' ||winner==='b')
-      ?<Winner winner={winner} />
+      ?<Winner winner={winner}
+      won={true}/>
       :<ActiveCoin
       turn={turn}
       dropped={dropped}
-      
       setDropped={setDropped}
       setTurn={setTurn}
-
       />}
 
-     
     </div>
   );
 };

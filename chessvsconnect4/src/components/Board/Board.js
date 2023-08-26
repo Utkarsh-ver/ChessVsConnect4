@@ -15,8 +15,10 @@ const Board=()=>{
     const {appState}=useAppContext()
     const [dropped, setDropped] = useState([]);
 
-    const position=appState.position[appState.position.length-1]
 
+    var won = <Winner won/>
+
+    const position=appState.position[appState.position.length-1]
 
     const getClassName=(i,j)=>{
         let c='tile '
@@ -48,9 +50,10 @@ const Board=()=>{
                 setTurn={setTurn}
                 dropped={dropped}
                 setDropped={setDropped}
-                /><div className='text'>BATTLEGRID</div>
+                />
 
                 <Files files={files}/>
+
             </div>
         </div>
 }

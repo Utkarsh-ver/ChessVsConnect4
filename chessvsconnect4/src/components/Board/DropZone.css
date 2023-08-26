@@ -1,45 +1,64 @@
-
-
 .drop-zone {
-    height:calc(var(--tile-size)*1.5);
-    position: relative;
-    left:calc(var(--tile-size)*.25);
-    place-content: center;
-    
+  height:calc(var(--tile-size)*1.5);
+  position: relative;
+  left:calc(var(--tile-size)*.25);
+  place-content: center;
 }
 
 .drop-zone  div{
-  width: var(--size);
-    height: var(--size);
-    border-radius: 50%;
-    position: absolute;
-    background-color: rgba(205, 199, 192, 0.905);
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.808);
-    background-image: url("../../assets/connect.png");
+  width: var(--rad);
+  height: var(--rad);
+  border-radius: 50%;
+  position: absolute;
+  background-color: rgba(205, 199, 192, 0.905);
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.808);
+  background-image: url("../../assets/connect.png");
   background-size: 70%; 
   background-position: center; 
   background-repeat: no-repeat;
-  
-
 }
 .drop-zone .active {transition: all ease-in-out 500ms;}
 .drop-zone .active.column-0{margin-left: 0;}
-.drop-zone .active.column-1{margin-left: 100px;}
-.drop-zone .active.column-2{margin-left: 200px;}
-.drop-zone .active.column-3{margin-left: 300px;}
-.drop-zone .active.column-4{margin-left: 400px;}
-.drop-zone .active.column-5{margin-left: 500px;}
-.drop-zone .active.column-6{margin-left: 600px;}
-.drop-zone .active.column-7{margin-left: 700px;}
+.drop-zone .active.column-1{margin-left: 10vh;}
+.drop-zone .active.column-2{margin-left: 20vh;}
+.drop-zone .active.column-3{margin-left: 30vh;}
+.drop-zone .active.column-4{margin-left: 40vh;}
+.drop-zone .active.column-5{margin-left: 50vh;}
+.drop-zone .active.column-6{margin-left: 60vh;}
+.drop-zone .active.column-7{margin-left: 70vh;}
 
-.drop-zone .active.row-0 {transform : translateY(150px)}
-.drop-zone .active.row-1 {transform : translateY(250px)}
-.drop-zone .active.row-2 {transform : translateY(350px)}
-.drop-zone .active.row-3 {transform : translateY(450px)}
-.drop-zone .active.row-4 {transform : translateY(550px)}
-.drop-zone .active.row-5 {transform : translateY(650px)}
-.drop-zone .active.row-6 {transform : translateY(750px)}
-.drop-zone .active.row-7 {transform : translateY(850px)}
 
-.drop-zone .active.column--.row--{transition: all ease-in-out 500ms;}
+
+
+.drop-zone .active.row-0 {transition: all ease-in-out 500ms;}
+.drop-zone .active.row-1 {transition: all ease-in-out 500ms;}
+.drop-zone .active.row-2 {transition: all ease-in-out 500ms;}
+.drop-zone .active.row-3 {transition: all ease-in-out 500ms;}
+.drop-zone .active.row-4 {transition: all ease-in-out 500ms;}
+.drop-zone .active.row-5 {transition: all ease-in-out 500ms;}
+.drop-zone .active.row-6 {transition: all ease-in-out 500ms;}
+.drop-zone .active.row-7 {transition: all ease-in-out 500ms;}
+
+.drop-zone .active.row-0 {margin-top: 15vh;}
+.drop-zone .active.row-1 {margin-top: 25vh;}
+.drop-zone .active.row-2 {margin-top: 35vh;}
+.drop-zone .active.row-3 {margin-top: 45vh;}
+.drop-zone .active.row-4 {margin-top: 55vh;}
+.drop-zone .active.row-5 {margin-top: 65vh;}
+.drop-zone .active.row-6 {margin-top: 75vh;}
+.drop-zone .active.row-7 {margin-top: 85vh;}
+
+
+/* .drop-zone .active.row-0 {transform : translateY(15vh); transition: all ease-in-out 1000ms;}
+.drop-zone .active.row-1 {transform : translateY(25vh); transition: all ease-in-out 500ms;}
+.drop-zone .active.row-2 {transform : translateY(35vh); transition: all ease-in-out 500ms;}
+.drop-zone .active.row-3 {transform : translateY(45vh); transition: all ease-in-out 500ms;}
+.drop-zone .active.row-4 {transform : translateY(55vh); transition: all ease-in-out 500ms;}
+.drop-zone .active.row-5 {transform : translateY(65vh); transition: all ease-in-out 500ms;}
+.drop-zone .active.row-6 {transform : translateY(75vh); transition: all ease-in-out 500ms;}
+.drop-zone .active.row-7 {transform : translateY(85vh); transition: all ease-in-out 500ms;} */
+
+.drop-zone .active.column--.row--{transition: none}
+
+
 

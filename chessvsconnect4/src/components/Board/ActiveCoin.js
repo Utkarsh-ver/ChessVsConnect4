@@ -48,7 +48,7 @@ const ActiveMarble = ({ turn, dropped, setDropped, setTurn }) => {
           ];
   
           setDropped(newPosition);
-        },500);
+        },100);
       }
     }
   };

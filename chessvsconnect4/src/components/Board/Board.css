@@ -29,7 +29,7 @@
 .highlight:after {
     content: ' ';
     display: block;
-    position: absolute;
+    position: relative;
     width: calc(.5*var(--tile-size));
     height: calc(.5*var(--tile-size));
     background-color: var(--highlight);
@@ -41,6 +41,6 @@
     position:absolute;
     font-size: 500%;
     font-family:fantasy;
-    transform: translate(64%,360%);
+    transform: translate(64%,36%);
     color:rgba(37, 29, 13, 0.331)
 }
