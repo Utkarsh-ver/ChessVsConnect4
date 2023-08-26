@@ -34,7 +34,6 @@ const ActiveMarble = ({ turn, dropped, setDropped, setTurn }) => {
         
         var len = 0;
         while(len < 8 && position[7-len][(column || 0)] === ''){
-          console.log(position[7-len][(column || 0)])
           len = len+1
         }
         len = len-1;

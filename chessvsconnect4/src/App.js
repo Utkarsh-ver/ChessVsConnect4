@@ -6,7 +6,8 @@ import DropZone from './components/Board/DropZone'
 import AppContext from './context/Context'
 import { reducer } from './reducer/reducer'
 import { initGameState } from './constant'
-function App() {
+import { winner } from './'
+function App({winner}) {
 
   const[appState,dispatch]=useReducer(reducer,initGameState)
 

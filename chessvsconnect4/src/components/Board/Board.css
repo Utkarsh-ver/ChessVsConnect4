@@ -29,11 +29,11 @@
 .highlight:after {
     content: ' ';
     display: block;
-    position: absolute;
-    width: calc(.5*var(--tile-size));
-    height: calc(.5*var(--tile-size));
+    position: relative;
+    width: calc(.4*var(--tile-size));
+    height: calc(.4*var(--tile-size));
     background-color: var(--highlight);
     border-radius: 50%;
-    left: 25%;
-    top: 25%;
+    left: 30%;
+    top: 28%;
 }  

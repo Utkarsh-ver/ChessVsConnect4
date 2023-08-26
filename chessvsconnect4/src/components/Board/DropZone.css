@@ -13,7 +13,7 @@
     height: var(--size);
     border-radius: 50%;
     position: absolute;
-    background-color: rgba(205, 199, 192, 0.905);
+    background-color: rgba(216, 208, 199, 0.905);
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.808);
     background-image: url("../../assets/connect.png");
   background-size: 70%; 
@@ -22,7 +22,7 @@
   
 
 }
-.drop-zone .active {transition: all ease-in-out 500ms;}
+.drop-zone .active{transition: all ease-in-out 500ms;}
 .drop-zone .active.column-0{margin-left: 0;}
 .drop-zone .active.column-1{margin-left: 10vh;}
 .drop-zone .active.column-2{margin-left: 20vh;}

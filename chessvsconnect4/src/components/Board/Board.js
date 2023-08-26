@@ -7,6 +7,7 @@ import { useAppContext } from '../../context/Context'
 import Dropzone from './DropZone'
 import { useState } from 'react'
 
+
 const Board=()=>{
     const ranks=Array(8).fill().map((x,i)=>8-i)
     const files=Array(8).fill().map((x,i)=>i+1)
@@ -34,13 +35,13 @@ const Board=()=>{
             dropped = {dropped}
             setDropped={setDropped}
             />
-            <div className="Board" >
+            <div className="Board">
+
                 <Rank ranks={ranks}/>
                 <div className="tiles">
                     {ranks.map((rank,i)=>
                     files.map((file,j)=>
-                    <div key={file+'-'+rank} className={getClassName(7-i,j)}>
-                    </div>))}
+                    <div key={file+'-'+rank} className={getClassName(7-i,j)}></div>))}
                 </div>
                 
                 <Pieces

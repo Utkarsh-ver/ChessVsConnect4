@@ -9,8 +9,6 @@ import { turn } from '../../reducer/reducer'
 const DropZone = ({turn,setTurn,dropped,setDropped}) => {
   const [winner,setWinner]=useState();
 
-  
-
   const root = document.documentElement;
   const size = getComputedStyle(root).getPropertyValue('--size').trim();
 
@@ -19,7 +17,8 @@ const DropZone = ({turn,setTurn,dropped,setDropped}) => {
         p1.forEach(({x,y}) => {
             if (p1.find(m => x === m.x + 1 && y === m.y) &&
                 p1.find(m => x === m.x + 2 && y === m.y) &&
-                p1.find(m => x === m.x + 3 && y === m.y)
+                p1.find(m => x === m.x + 3 && y === m.y) 
+                // p1.find(m => x === m.x + 4 && y === m.y)
             )
             setWinner('w')
             else if (p1.find(m => x === m.x && y === m.y + 1) &&
@@ -42,8 +41,8 @@ const DropZone = ({turn,setTurn,dropped,setDropped}) => {
    }
 
   useEffect(()=>{
-    // if(dropped.length===9)
-    //    setWinner('b')
+    if(dropped.length===9)
+       setWinner('b')
      findWinner()
   },[dropped])
 
@@ -58,12 +57,11 @@ const DropZone = ({turn,setTurn,dropped,setDropped}) => {
           }}
         />
       ))}
-      { (winner==='w' ||winner==='b')
+      { (winner==='w' || winner==='b')
       ?<Winner winner={winner} />
       :<ActiveCoin
       turn={turn}
       dropped={dropped}
-      
       setDropped={setDropped}
       setTurn={setTurn}
 
