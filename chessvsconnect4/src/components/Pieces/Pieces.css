@@ -2,7 +2,11 @@
     position: absolute;
     top: 50%;       
     left: 50%;       
+<<<<<<< HEAD
     transform: translate(-48.5%, -42%); 
+=======
+    transform: translate(-48.5%, -30%); 
+>>>>>>> 8fc3967aff7469aadd58057a6533850a699fec91
     width: calc(8*var(--tile-size));
     height: calc(8*var(--tile-size));
 }

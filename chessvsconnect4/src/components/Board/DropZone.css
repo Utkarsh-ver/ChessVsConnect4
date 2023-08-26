@@ -26,6 +26,7 @@
 .drop-zone .active.column-5{margin-left: 50vh;}
 .drop-zone .active.column-6{margin-left: 60vh;}
 .drop-zone .active.column-7{margin-left: 70vh;}
+<<<<<<< HEAD
 
 
 
@@ -61,4 +62,17 @@
 .drop-zone .active.column--.row--{transition: none}
 
 
+=======
+
+.drop-zone .active.row-0 {transform : translateY(15vh)}
+.drop-zone .active.row-1 {transform : translateY(25vh)}
+.drop-zone .active.row-2 {transform : translateY(35vh)}
+.drop-zone .active.row-3 {transform : translateY(45vh)}
+.drop-zone .active.row-4 {transform : translateY(55vh)}
+.drop-zone .active.row-5 {transform : translateY(65vh)}
+.drop-zone .active.row-6 {transform : translateY(75vh)}
+.drop-zone .active.row-7 {transform : translateY(85vh)}
+
+.drop-zone .active.column--.row--{transition: none;}
+>>>>>>> 8fc3967aff7469aadd58057a6533850a699fec91
 

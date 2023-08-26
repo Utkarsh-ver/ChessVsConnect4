@@ -37,6 +37,7 @@
     left: 25%;
     top: 25%;
 }  
+<<<<<<< HEAD
 .text{
     position:absolute;
     font-size: 500%;
@@ -44,3 +45,5 @@
     transform: translate(64%,36%);
     color:rgba(37, 29, 13, 0.331)
 }
+=======
+>>>>>>> 8fc3967aff7469aadd58057a6533850a699fec91
