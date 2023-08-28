@@ -12,6 +12,7 @@
     border-radius: 50%;
     position: absolute;
     background-color: rgba(216, 208, 199, 0.905);
+    z-index: 2;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.808);
     background-image: url("../../assets/connect.png");
   background-size: 70%; 

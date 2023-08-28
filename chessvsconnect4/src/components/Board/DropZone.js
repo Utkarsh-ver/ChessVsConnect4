@@ -41,7 +41,7 @@ const DropZone = ({turn,setTurn,dropped,setDropped,winner,setWinner}) => {
    }
 
   useEffect(()=>{
-     if(dropped.length===10)
+     if(dropped.length===15)
         setWinner('b')
      findWinner()
   },[dropped])

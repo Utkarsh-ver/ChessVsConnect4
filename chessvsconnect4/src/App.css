@@ -11,3 +11,6 @@ html,body{
   height: 100vh;
   background:var(--bg-color);
 }
+.App .takeback{
+  left :80%;
+}

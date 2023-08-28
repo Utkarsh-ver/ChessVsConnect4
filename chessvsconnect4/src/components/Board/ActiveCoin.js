@@ -13,7 +13,7 @@ const ActiveMarble = ({ turn, dropped, setDropped, setTurn }) => {
     if (turn === 'b') {
       return;
     }
-
+    if(column === undefined){setColumn(0);return;}
     if (e.keyCode === 37 && column > 0) {
       setColumn(column - 1);
     } else if (e.keyCode === 39) {
@@ -38,7 +38,7 @@ const ActiveMarble = ({ turn, dropped, setDropped, setTurn }) => {
         if (len === -1) return;
 
         setTurn('b');
-        setPrevColumns(column); // Update previous columns
+        setPrevColumns(column||0); // Update previous columns
         setRow(len);
         setTimeout(() => {
           position[7 - len][(column || 0)] = 'c';

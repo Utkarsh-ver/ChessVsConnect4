@@ -13,7 +13,10 @@
     position: absolute;
     transform: translate(32%, 275%); 
     font-size: var(--tile-size);
-    color:rgba(0, 0, 0, 0.471)
+    color:rgba(0, 0, 0, 0.471);
+    user-select: none; 
+    pointer-events: none;
+    z-index: 1;
 
 }
 
@@ -22,6 +25,7 @@
     height: 12.5%;
     position: absolute;
     background-size: 100%;
+    z-index: 2;
 }
 
 .piece.bb {
