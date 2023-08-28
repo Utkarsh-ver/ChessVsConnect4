@@ -12,6 +12,7 @@ const Board=()=>{
     const ranks=Array(8).fill().map((x,i)=>8-i)
     const files=Array(8).fill().map((x,i)=>i+1)
 
+    const [winner,setWinner] = useState()
     const [turn,setTurn]=useState('w')
     const {appState}=useAppContext()
     const [dropped, setDropped] = useState([]);
@@ -27,12 +28,22 @@ const Board=()=>{
         }
         return c 
     }
+    
+    if(winner=='b'){
+        return <div id='winner'>Congratulations! Black has WON</div>
+    }
+    if(winner == 'w'){
+        return <div id='winner'>Congratulations! White has WON</div>
+    }
+
     return <div>
             <Dropzone
             turn={turn}
             setTurn={setTurn}
             dropped = {dropped}
             setDropped={setDropped}
+            winner = {winner}
+            setWinner = {setWinner}
             />
             <div className="Board">
 

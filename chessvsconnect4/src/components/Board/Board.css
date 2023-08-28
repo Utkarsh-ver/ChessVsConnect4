@@ -37,10 +37,22 @@
     left: 30%;
     top: 28%;
 }  
-.text{
-    position:absolute;
-    font-size: 500%;
-    font-family:fantasy;
-    transform: translate(64%,36%);
-    color:rgba(37, 29, 13, 0.331)
-}
+
+#winner {
+    position: center;
+    font-size: 400%;
+    font-family: fantasy;
+    color: rgba(228, 218, 218, 0.735);
+    opacity: 0; 
+    animation: fadeIn 2s ease-in-out forwards; 
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0; 
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  

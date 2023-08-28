@@ -6,8 +6,8 @@ import Winner from './Winner';
 import { turn } from '../../reducer/reducer'
 
 
-const DropZone = ({turn,setTurn,dropped,setDropped}) => {
-  const [winner,setWinner]=useState();
+const DropZone = ({turn,setTurn,dropped,setDropped,winner,setWinner}) => {
+  // const [winner,setWinner]=useState();
 
   const root = document.documentElement;
   const size = getComputedStyle(root).getPropertyValue('--size').trim();
@@ -41,30 +41,31 @@ const DropZone = ({turn,setTurn,dropped,setDropped}) => {
    }
 
   useEffect(()=>{
-    if(dropped.length===9)
-       setWinner('b')
+     if(dropped.length===10)
+        setWinner('b')
      findWinner()
   },[dropped])
 
   return (
     <div className='drop-zone'>
-      {dropped.map((m, i) => (
-        <div
-          key={i}
-          className={`p${m.player}`}
-          style={{
-            transform: `translate(${m.y * parseFloat(size)}vh, ${m.x * parseFloat(size)+15}vh)`,
-          }}
-        />
-      ))}
-      { (winner==='w' || winner==='b')
-      ?<Winner winner={winner} />
-      :<ActiveCoin
+      {
+        dropped.map((m, i) => (
+            <div
+              key={i}
+              className={`p${m.player}`}
+              style={{
+                transform: `translate(${m.y * parseFloat(size)}vh, ${(m.x * parseFloat(size)+15)}vh)`,
+              }}
+            />
+        
+        ))
+      }
+      <ActiveCoin
       turn={turn}
       dropped={dropped}
       setDropped={setDropped}
       setTurn={setTurn}
-      />}
+      />
 
     </div>
   );
