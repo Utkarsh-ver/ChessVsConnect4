@@ -2,12 +2,10 @@ import React, { useState, useEffect } from 'react';
 import '../../constants.css';
 import ActiveCoin from './ActiveCoin';
 import './DropZone.css';
-import Winner from './Winner';
-import { turn } from '../../reducer/reducer'
 
 
 const DropZone = ({turn,setTurn,dropped,setDropped,winner,setWinner}) => {
-  // const [winner,setWinner]=useState();
+
 
   const root = document.documentElement;
   const size = getComputedStyle(root).getPropertyValue('--size').trim();
@@ -18,7 +16,7 @@ const DropZone = ({turn,setTurn,dropped,setDropped,winner,setWinner}) => {
             if (p1.find(m => x === m.x + 1 && y === m.y) &&
                 p1.find(m => x === m.x + 2 && y === m.y) &&
                 p1.find(m => x === m.x + 3 && y === m.y) 
-                // p1.find(m => x === m.x + 4 && y === m.y)
+
             )
             setWinner('w')
             else if (p1.find(m => x === m.x && y === m.y + 1) &&
@@ -52,7 +50,7 @@ const DropZone = ({turn,setTurn,dropped,setDropped,winner,setWinner}) => {
         dropped.map((m, i) => (
             <div
               key={i}
-              className={`p${m.player}`}
+              className={`p${m.player} coin`}
               style={{
                 transform: `translate(${m.y * parseFloat(size)}vh, ${(m.x * parseFloat(size)+15)}vh)`,
               }}

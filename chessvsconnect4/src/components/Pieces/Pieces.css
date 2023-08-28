@@ -8,7 +8,7 @@
     width: calc(8*var(--tile-size));
     height: calc(8*var(--tile-size));
 }
-#text {
+/* #text {
     font-family: fantasy;
     position: absolute;
     transform: translate(32%, 275%); 
@@ -18,7 +18,7 @@
     pointer-events: none;
     z-index: 1;
 
-}
+} */
 
 .piece {
     width: 12.5%;

@@ -1,7 +1,0 @@
-.control {
-    display: flex;
-    flex-direction: row;
-    padding: 1%;
-    text-align: right;
-    height: var(--tile-size);
-}

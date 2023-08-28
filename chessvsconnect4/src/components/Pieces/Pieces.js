@@ -92,7 +92,6 @@ className='pieces'>
     }/>
     : null
     ))}
-    <div id="text">FUSION GRID</div>
 </div>
 }
 
