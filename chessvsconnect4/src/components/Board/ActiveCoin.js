@@ -5,7 +5,7 @@ const ActiveMarble = ({ turn, dropped, setDropped, setTurn }) => {
   const [column, setColumn] = useState(0);
   const [row, setRow] = useState();
   const [prevColumns, setPrevColumns] = useState(null); // Keep track of previous columns
-  const { appState, dispatch } = useAppContext();
+  const { appState } = useAppContext();
 
   var position = appState.position[appState.position.length - 1];
 
@@ -14,10 +14,11 @@ const ActiveMarble = ({ turn, dropped, setDropped, setTurn }) => {
       return;
     }
     if(column === undefined){setColumn(0);return;}
+    console.log(column);
     if (e.keyCode === 37 && column > 0) {
       setColumn(column - 1);
     } else if (e.keyCode === 39) {
-      if (column === undefined) setColumn(0);
+      if (column === undefined) setColumn(column || 0);
       else if (column < 8) {
         setColumn(column + 1);
       }
