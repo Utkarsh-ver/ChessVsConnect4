@@ -8,7 +8,6 @@ const ActiveMarble = ({ turn, dropped, setDropped, setTurn }) => {
   const { appState } = useAppContext();
 
   var position = appState.position[appState.position.length - 1];
-
   const handleKeyDown = (e) => {
     if (turn === 'b') {
       return;

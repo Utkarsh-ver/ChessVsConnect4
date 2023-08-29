@@ -10,6 +10,7 @@ const DropZone = ({turn,setTurn,dropped,setDropped,winner,setWinner}) => {
   const root = document.documentElement;
   const size = getComputedStyle(root).getPropertyValue('--size').trim();
 
+
   const findWinner=()=> {
     const p1 = dropped.filter(d => d.player === 'w')
         p1.forEach(({x,y}) => {
@@ -38,12 +39,13 @@ const DropZone = ({turn,setTurn,dropped,setDropped,winner,setWinner}) => {
         })
    }
 
+
   useEffect(()=>{
      if(dropped.length===15)
         setWinner('b')
      findWinner()
-  },[dropped])
 
+  },[dropped])
   return (
     <div className='drop-zone'>
       {

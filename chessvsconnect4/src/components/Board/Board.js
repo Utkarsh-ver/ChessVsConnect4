@@ -29,10 +29,10 @@ const Board=()=>{
     }
     
     if(winner=='b'){
-        return <div id='winner'>Congratulations! Black has WON</div>
+        return <div id='winner'>Congratulations! Chess has WON</div>
     }
     if(winner == 'w'){
-        return <div id='winner'>Congratulations! White has WON</div>
+        return <div id='winner'>Congratulations! Connect4 has WON</div>
     }
 
     return <div>

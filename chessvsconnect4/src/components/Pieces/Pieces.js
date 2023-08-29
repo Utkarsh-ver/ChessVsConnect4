@@ -55,6 +55,7 @@ const  Pieces=({turn,setTurn,dropped,setDropped})=>{
           
 
             setTurn('w')
+            console.log(turn)
         }
 
         dispatch(clearCandidates())
