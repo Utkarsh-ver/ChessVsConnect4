@@ -73,5 +73,4 @@ const ActiveMarble = ({ turn, dropped, setDropped, setTurn }) => {
   );
 };
 
-
 export default ActiveMarble

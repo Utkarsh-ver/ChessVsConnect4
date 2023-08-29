@@ -45,7 +45,7 @@ const Board=()=>{
             setWinner = {setWinner}
             />
             <div className="Board">
-
+            
                 <Rank ranks={ranks}/>
                 <div className="tiles">
                     {ranks.map((rank,i)=>
