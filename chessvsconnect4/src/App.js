@@ -4,6 +4,7 @@ import Board from './components/Board/Board';
 import AppContext from './context/Context';
 import { reducer } from './reducer/reducer';
 import { initGameState } from './constant';   
+import FusionGridGame from './components/Pages/Instruction';
 
 function App() {
   const [appState, dispatch] = useReducer(reducer, initGameState);

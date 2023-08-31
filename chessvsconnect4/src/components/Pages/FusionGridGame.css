@@ -1,0 +1,76 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: black;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: url('DarkB.jpg') center/cover;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Times New Roman', Times, serif;
+    color: #ffffff;
+  }
+  
+  .normal {
+    font-family: 'Chakra Petch', sans-serif;
+    color: #ffffff;
+  }
+  
+  #top {
+    font-family: 'Rubik Iso', sans-serif;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #dd9263;
+    border-radius: 10px;
+  }
+  
+  h2 {
+    text-align: center;
+    background-color: #dd9263;
+    border-radius: 10px;
+    margin-top: 20px;
+  }
+  
+  p {
+    line-height: 1.5;
+  }
+  
+  ul {
+    margin-left: 20px;
+  }
+  
+  .start-button {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .start-button button {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #e1a782;
+    color: #8b4513;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .start-button button:hover {
+    background-color: #b8860b;
+  }
+  
+  .divider {
+    margin: 20px 0;
+    border-top: 1px solid #8b4513;
+  }
+  
