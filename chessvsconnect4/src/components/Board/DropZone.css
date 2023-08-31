@@ -3,7 +3,8 @@
   position: relative;
   left:calc(var(--tile-size)*.25);
   place-content: center;
-  
+  top:-8%;
+ 
 }
 
 .drop-zone  div{
@@ -11,13 +12,13 @@
     height: calc(1*var(--size));
     border-radius: 50%;
     position: absolute;
-    top:-2vh;
     background-color: rgba(216, 208, 199, 0.905);
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.808);
     background-image: url("../../assets/connect.png");
   background-size: 70%; 
   background-position: center; 
   background-repeat: no-repeat;
+  z-index: 1;
   
 }
 .drop-zone .active {transition: all ease-in-out 100ms;}
@@ -58,17 +59,17 @@
 .connect4 {
   position: relative;
   left: -6%; /* Adjust this value to position the element as needed */
-  top: 6%; /* Center vertically within the main container */
+  top: -2%; /* Center vertically within the main container */
   width: calc(0.3 * var(--size));
   height: calc(0.3 * var(--size));
   border-radius: 50%;
-  background-color: rgb(0, 0, 0);
+  background-color: rgb(255, 4, 4);
   box-shadow: 0 0 10px 5px rgb(255, 4, 4);
   transition: box-shadow 0.3s ease-in-out;
 }
 
 .connect4.active {
-  background-color: rgba(0, 0, 0, 0.831);
+  background-color: rgba(50, 201, 4, 0.831);
   box-shadow: 0 0 10px 5px rgba(50, 201, 4, 0.831);
 }
 
