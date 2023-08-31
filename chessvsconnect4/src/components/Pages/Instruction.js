@@ -1,12 +1,12 @@
 import React from 'react';
 import './FusionGridGame.css';
-import { BrowseRouter as Router, Route, Routes} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 
 const FusionGridGame = ()=> {
+const navigate = useNavigate();
   const startGame = () => {
-    // alert('Game started!');
-    // Add logic to start the game here
     
+    navigate('/home');
 
     };
 
