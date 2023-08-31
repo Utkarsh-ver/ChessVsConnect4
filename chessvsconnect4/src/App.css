@@ -10,47 +10,11 @@ html,body{
   place-content: center;
   height: 100vh;
   background:var(--bg-color);
+  
+  
 }
 
-.connect4 {
-  position: absolute;
-  left: 22%; /* Adjust this value to position the element as needed */
-  top: 6%; /* Center vertically within the main container */
-  transform: translateY(-50%);
-  width: calc(0.3 * var(--size));
-  height: calc(0.3 * var(--size));
-  border-radius: 50%;
-  background-color:rgb(0, 0, 0) ;
-  box-shadow: 0 0 10px 5px rgb(255, 4, 4);
-  transition: box-shadow 0.3s ease-in-out;
 
-}
-
-.connect4.active{
-  background-color:rgba(0, 0, 0, 0.831) ;
-  box-shadow: 0 0 10px 5px rgba(50, 201, 4, 0.831);
-  
-  
-}
-.chess {
-  position: absolute;
-  left: 22%; /* Adjust this value to position the element as needed */
-  top: 92%; /* Center vertically within the main container */
-  transform: translateY(-50%);
-  width: calc(0.3 * var(--size));
-  height: calc(0.3 * var(--size));
-  border-radius: 50%;
-  transition: box-shadow 0.3s ease-in-out;
-  background-color: rgb(0, 0, 0);
-  box-shadow: 0 0 10px 5px rgb(255, 4, 4);
-  
-}
-.chess.active{
-  background-color:rgba(0, 0, 0, 0.831) ;
-  box-shadow: 0 0 10px 5px rgba(50, 201, 4, 0.831);
-  
-  
-}
 
 
 
