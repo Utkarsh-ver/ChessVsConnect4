@@ -47,6 +47,7 @@ const DropZone = ({turn,setTurn,dropped,setDropped,winner,setWinner}) => {
 
   },[dropped])
   return (
+    <>
     <div className='drop-zone'>
       {
         dropped.map((m, i) => (
@@ -66,8 +67,12 @@ const DropZone = ({turn,setTurn,dropped,setDropped,winner,setWinner}) => {
       setDropped={setDropped}
       setTurn={setTurn}
       />
+      
 
     </div>
+     
+</>
+       
   );
 };
 

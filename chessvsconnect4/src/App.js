@@ -17,10 +17,7 @@ function App() {
   return (
     <AppContext.Provider value={providerState}>
       <div className="App">
-        <div className={`connect4 ${turn === 'b' ? 'active' : ''}`}></div>
-        <div className={`chess ${turn === 'c' ? 'active' : ''}`}></div>
         <Board />
-        
       </div>
     </AppContext.Provider>
   );

@@ -64,11 +64,13 @@ const ActiveMarble = ({ turn, dropped, setDropped, setTurn }) => {
   });
 
   return (
+
     <div
       className={`active p${turn} column-${column || '-'} row-${
         row === undefined ? '-' : row
       }`}
     />
+    
   );
 };
 
