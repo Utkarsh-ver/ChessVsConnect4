@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const User = require('./userData');
 const { handleUserLogin } = require('./sign');
+const ReactDOMServer = require('react-dom/server');
 const app = express();
 
 
@@ -16,8 +17,14 @@ app.use(express.urlencoded({ extended: false }));
 app.set('view engine', 'ejs');
 
 
-app.get('/', (req,res) => {
-    res.render('home');
+// app.get('/', (req,res) => {
+//     res.render('home');
+// });
+
+app.get('/', (req, res) => {
+    const home = require('../chessvsconnect4/src/index'); // Import your React component
+    const html = ReactDOMServer.renderToString(React.createElement(home));
+    res.send(html);
 });
 
 app.get('/signup', (req, res) => {
@@ -27,6 +34,7 @@ app.get('/signup', (req, res) => {
 app.get('/login', (req, res) => {
     res.render('login');
 });
+
 
 
 app.post('/login', (req, res) => {
