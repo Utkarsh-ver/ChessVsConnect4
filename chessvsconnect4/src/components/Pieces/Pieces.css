@@ -3,10 +3,11 @@
     top: 50%;       
     left: 50%;       
 
-    transform: translate(-48.5%, -42%); 
+    transform: translate(-48.5%, -52%); 
 
     width: calc(8*var(--tile-size));
     height: calc(8*var(--tile-size));
+    
 }
 /* #text {
     font-family: fantasy;
@@ -306,5 +307,5 @@
 }
 
 .piece.p-77 {
-    transform: translate(700%, 0%);
+    transform: translate(700%,0%);
 }

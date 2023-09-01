@@ -1,8 +1,9 @@
 .Board {
+  position: relative;
     display: grid;
     grid-template-columns: calc(.25*var(--tile-size))calc(8*var(--tile-size));
-    
-
+    top:-8%;
+    z-index: 0;
 }
 
 .tiles {
@@ -10,6 +11,7 @@
     grid-template-columns: repeat(8, var(--tile-size));
     grid-template-rows: repeat(8, var(--tile-size));
     width: calc(8*var(--tile-size));
+  
 
 }
 
@@ -55,4 +57,44 @@
       opacity: 1;
     }
   }
+  .chess {
+    position: relative;
+    left: -6%; /* Adjust this value to position the element as needed */
+    top: -14%; /* Center vertically within the main container */
+    transform: translateY(-50%);
+    width: calc(0.3 * var(--size));
+    height: calc(0.3 * var(--size));
+    border-radius: 50%;
+    transition: box-shadow 0.3s ease-in-out;
+    background-color: rgb(255, 4, 4);
+    box-shadow: 0 0 10px 5px rgb(255, 4, 4);
+  }
   
+  /* Media Query for Small Screens */
+  
+  
+  .chess.active{
+    background-color:rgba(50, 201, 4, 0.831) ;
+    box-shadow: 0 0 10px 5px rgba(50, 201, 4, 0.831);
+    
+    
+  }
+  .moveleft {
+    position: relative;
+    top: 10%;
+    left:110%;
+    width:15vw;
+    font-size:x-large;
+    font-family: fantasy;
+    color:rgb(177, 182, 187);
+  }
+  .text {
+    position: absolute;
+    top: 48%;
+    left: 46%;
+    font-size: 500%;
+    color: rgba(0, 0, 0, 0.303);
+    transform: translate(-40%, -50%);
+    font-family: fantasy; /* Replace 'Your Interesting Font' with the desired font name */
+    user-select: none; /* Prevent text selection */
+    pointer-events: none; /* Make it unclickable */}

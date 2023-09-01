@@ -37,7 +37,11 @@ const Board=()=>{
         return <div id='winner'>Congratulations! Connect4 has WON</div>
     }
 
-    return <div>
+    return  <div style={{height :'100vh'}}>
+
+          <div className='moveleft'>Connect4 Moves Left : {15-dropped.length}</div>
+    <div className={`connect4 ${turn === 'b' ? '' : 'active'}`}></div>
+
             <Dropzone
             turn={turn}
             setTurn={setTurn}
@@ -56,7 +60,7 @@ const Board=()=>{
                     files.map((file,j)=>
                     <div key={file+'-'+rank} className={getClassName(7-i,j)}></div>))}
                 </div>
-                
+                <div className="text">FUSIONGRID</div>
                 <Pieces
                 turn={turn}
                 setTurn={setTurn}
@@ -69,6 +73,8 @@ const Board=()=>{
                 <Files files={files}/>
 
             </div>
+            <div className={`chess ${turn === 'b' ? 'active' : ''}`}></div>
+
         </div>
 }
 
