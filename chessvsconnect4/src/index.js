@@ -2,7 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import Home from './home';
 import Login from './Login';
+import Round from './round';
+import UserTurn from './userTurn';
 import {BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 
@@ -11,9 +14,11 @@ root.render(
   <React.StrictMode>
     <Router>
       <Routes>
-        <Route exact path="/" element={<App/>}></Route>
+        <Route exact path="/" element={<Home/>}></Route>
         <Route exact path="/login" element={<Login/>}></Route>
-
+        <Route exact path="/round" element={<Round/>}></Route>
+        <Route exact path="/home" element={<App/>}></Route>
+        <Route exact path="/userTurn" element={<UserTurn/>}></Route>
       </Routes>
     </Router>
   </React.StrictMode>

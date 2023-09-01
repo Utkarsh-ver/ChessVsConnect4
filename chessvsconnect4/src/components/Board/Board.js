@@ -15,6 +15,8 @@ const Board=()=>{
     const [turn,setTurn]=useState('w')
     const {appState}=useAppContext()
     const [dropped, setDropped] = useState([]);
+    const [userT,setUserT]=useState(null);
+
 
     const position=appState.position[appState.position.length-1]
 
@@ -43,6 +45,8 @@ const Board=()=>{
             setDropped={setDropped}
             winner = {winner}
             setWinner = {setWinner}
+            userT ={userT}
+            setUserT = {setUserT}
             />
             <div className="Board">
             
@@ -58,6 +62,8 @@ const Board=()=>{
                 setTurn={setTurn}
                 dropped={dropped}
                 setDropped={setDropped}
+                userT ={userT}
+                setUserT = {setUserT}
                 />
 
                 <Files files={files}/>

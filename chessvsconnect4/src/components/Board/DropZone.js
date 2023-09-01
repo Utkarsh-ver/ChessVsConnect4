@@ -4,7 +4,7 @@ import ActiveCoin from './ActiveCoin';
 import './DropZone.css';
 
 
-const DropZone = ({turn,setTurn,dropped,setDropped,winner,setWinner}) => {
+const DropZone = ({turn,setTurn,dropped,setDropped,winner,setWinner,userT,setUserT}) => {
 
 
   const root = document.documentElement;
@@ -65,6 +65,8 @@ const DropZone = ({turn,setTurn,dropped,setDropped,winner,setWinner}) => {
       dropped={dropped}
       setDropped={setDropped}
       setTurn={setTurn}
+      userT = {userT}
+      setUserT={setUserT}
       />
 
     </div>

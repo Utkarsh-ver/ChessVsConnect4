@@ -4,7 +4,7 @@ import {useState,useRef} from 'react'
 import { createPosition,copyPosition}  from '../../helper.js'
 import { clearCandidates, makeNewMove } from '../../reducer/actions/move'
 import { useAppContext } from '../../context/Context'
-const  Pieces=({turn,setTurn,dropped,setDropped})=>{
+const  Pieces=({turn,setTurn,dropped,setDropped,userT,setUserT})=>{
     
     const ref=useRef()
     const {appState,dispatch}=useAppContext()
@@ -23,7 +23,7 @@ const  Pieces=({turn,setTurn,dropped,setDropped})=>{
     
 
     const onDrop=e=>{
-        if(turn === 'w')return;
+        if(turn === 'w' || userT === 'connect4')return;
         const newPosition=copyPosition(currentPosition)
         const{x,y}=calculateCoords(e)
         const[p,rank,file]=e.dataTransfer.getData('text').split(',')

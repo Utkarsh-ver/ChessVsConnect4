@@ -10,25 +10,42 @@ const userSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 	},
-	room: {
+	round1_room: {
 		type: String,
 		required: true,
 	},
-	piece: {
+	round2_room: {
 		type: String,
 	},
-	score: {
-		type: Number,
-	},
-	board: {
+	round3_room: {
 		type: String,
 	},
-	message: {
+	round4_room: {
 		type: String,
 	},
-	winner: {
+	score:{
+		type:Number,
+		required:true,
+	},
+	board:{
+		type:String,
+		// required:true,
+	},
+	count_moves:{
+		type:Number,
+		required:true,
+	},
+	winner:{
+		type:Array,
+		required:true,
+	},
+	userTurn:{
 		type: String,
 	},
 });
 
-module.exports.User = mongoose.model("user", userSchema);
+// module.exports.User = mongoose.model("User", userSchema);
+
+const User = mongoose.model('User', userSchema);
+  
+module.exports = User;
