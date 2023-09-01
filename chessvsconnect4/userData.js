@@ -35,9 +35,21 @@ const userSchema = new mongoose.Schema({
 		type:Number,
 		required:true,
 	},
-	winner:{
-		type:Array,
-		required:true,
+	round1_winner:{
+		type:String,
+		// required:true,
+	},
+	round2_winner:{
+		type:String,
+		// required:true,
+	},
+	round3_winner:{
+		type:String,
+		// required:true,
+	},
+	round4_winner:{
+		type:String,
+		// required:true,
 	},
 	userTurn:{
 		type: String,

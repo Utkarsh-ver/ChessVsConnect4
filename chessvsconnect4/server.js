@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 // const User = require('./userData');
-const { handleUserLogin,handleUserget } = require('./sign');
+const { handleUserLogin,handleUserget,handleUserResult } = require('./sign');
 // const ReactDOMServer = require('react-dom/server');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -42,6 +42,12 @@ app.post('/login', (req, res) => {
 
 app.post('/userTurn', (req,res)=>{
     handleUserget(req,res);
+}
+);
+
+
+app.post('/result', (req,res)=>{
+    handleUserResult(req,res);
 }
 );
 

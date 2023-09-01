@@ -59,7 +59,53 @@ async function handleUserget(req, res){
     }
   }
 
+
+async function handleUserResult(req, res){
+try {
+    const result = await User.findOne({ roll: localStorage.roll });
+    // const users = await User.find({
+    // roll : localStorage.roll,
+    // });
+    // let response=0;
+    const round = result.round;
+
+    if(winner == "b" && round == "1"){
+        result.round1_winner = "chess";
+    } else if(winner == "w" && round == "1"){
+        result.round1_winner = "connect4";
+    }
+
+    if(winner == "b" && round == "2"){
+        result.round2_winner = "chess";
+    } else if(winner == "w" && round == "2"){
+        result.round2_winner = "connect4";
+    }
+
+    if(winner == "b" && round == "3"){
+        result.round3_winner = "chess";
+    } else if(winner == "w" && round == "3"){
+        result.round3_winner = "connect4";
+    }
+
+    if(winner == "b" && round == "4"){
+        result.round4_winner = "chess";
+    } else if(winner == "w" && round == "4"){
+        result.round4_winner = "connect4";
+    }
+
+    // console.log(users.round1_winner);
+    // //users.winners.push(req.params.winner);
+    // console.log(users);
+    // res.status(201).json(users);
+
+} catch (error) {
+    res.status(400).json({ message: error.message });
+}
+};
+
+
 module.exports = {
     handleUserLogin,
-    handleUserget
+    handleUserget,
+    handleUserResult
 }
