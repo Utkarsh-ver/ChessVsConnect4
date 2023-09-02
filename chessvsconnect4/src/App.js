@@ -15,7 +15,7 @@ import { io } from "socket.io-client";
 // console.log(localStorage.board); 
 
 /////////////////////////////Socket.io///////////////////////
-const socket= io("http://localhost:5050");
+const socket= io("/socket");
         socket.on('connection')
         // const roll= prompt('Enter Your Roll no. to join');
         const roll = localStorage.roll

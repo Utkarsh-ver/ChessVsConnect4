@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 // const User = require('./userData');
-const { handleUserLogin,handleUserget,handleUserResult,handleUserBoard } = require('./sign');
+const { handleUserLogin,handleUserget} = require('./sign');
 // const ReactDOMServer = require('react-dom/server');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -29,7 +29,7 @@ app.use(bodyParser.json());
 
 
 // Route to handle the login POST request
-app.post('/login', (req, res) => {
+app.post('/api/login', (req, res) => {
     // const { roll, pwd } = req.body;
     handleUserLogin(req,res);
     // Here you can implement your login logic
@@ -40,17 +40,8 @@ app.post('/login', (req, res) => {
 });
   
 
-app.post('/userTurn', (req,res)=>{
+app.post('/api/userTurn', (req,res)=>{
     handleUserget(req,res);
-}
-);
-
-app.post('/testing', (req,res)=>{
-	handleUserBoard(req,res);
-});
-
-app.post('/result', (req,res)=>{
-    handleUserResult(req,res);
 }
 );
 

@@ -27,7 +27,7 @@ const ActiveMarble = ({ turn, dropped, setDropped, setTurn , userT , setUserT,so
 
   const getTurn = ()=>{
     var requestData={roll:localStorage.roll};
-    const response = fetch("http://127.0.0.1:5000/userTurn",{
+    const response = fetch("/api/userTurn",{
         method: "POST", // *GET, POST, PUT, DELETE, etc.
         cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
         credentials: "include", // include, *same-origin, omit

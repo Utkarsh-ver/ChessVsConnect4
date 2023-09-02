@@ -24,7 +24,7 @@ const Login = () => {
     //     console.log(requestData);
     // }
     
-    const response = await fetch("http://127.0.0.1:5000/login",{
+    const response = await fetch("/api/login",{
             method: "POST", // *GET, POST, PUT, DELETE, etc.
             cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
             credentials: "include", // include, *same-origin, omit
