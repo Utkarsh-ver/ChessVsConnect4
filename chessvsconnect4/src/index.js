@@ -14,8 +14,7 @@ root.render(
   <React.StrictMode>
     <Router>
       <Routes>
-        <Route exact path="/" element={<Home/>}></Route>
-        <Route exact path="/login" element={<Login/>}></Route>
+        <Route exact path="/" element={<Login/>}></Route>
         <Route exact path="/round" element={<Round/>}></Route>
         <Route exact path="/home" element={<App/>}></Route>
         <Route exact path="/userTurn" element={<UserTurn/>}></Route>

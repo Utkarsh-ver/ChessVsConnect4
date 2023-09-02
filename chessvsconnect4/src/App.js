@@ -90,7 +90,6 @@ function App() {
     <AppContext.Provider value={providerState}>
       <div className="App">
         <Board />
-        
       </div>
     </AppContext.Provider>
   );

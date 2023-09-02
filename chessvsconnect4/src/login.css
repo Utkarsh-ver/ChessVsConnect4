@@ -1,5 +1,5 @@
 body {
-    background-image: url("D:\bg-4.png");
+    background-image: url("./assets/bg-4.png");
     background-size: cover; 
     background-repeat: no-repeat;
     background-attachment: fixed; 
@@ -28,7 +28,7 @@ body {
 
   }
   .piece{
-    background-image: url("D:\piece.png");
+    background-image: url("./assets/piece.png");
     height:50vh;
     width:60vh;
     left:55%;
@@ -38,7 +38,7 @@ body {
     
   }
   .connect{
-    background-image: url("D:\conn.png");
+    background-image: url("./assets/conn.png");
     background-size: cover; 
     background-repeat: no-repeat;
     height:30vh;
@@ -48,7 +48,7 @@ body {
     transform: rotate(-30deg);
   }
   .conn{
-    background-image: url("D:\sdfh.png");
+    background-image: url("./assets/sdfh.png");
     background-size: cover; 
     background-repeat: no-repeat;
     height:30vh;
@@ -117,7 +117,7 @@ body {
     cursor: text;
     transform: translate(6%,0%);
     
-    font-weight: 600;
+    font-weight: 400;
     font-size: large;
     padding-left: 2vh;
   }
@@ -142,18 +142,19 @@ body {
   }
   .round::placeholder {
     
-    font-weight: normal; /* Optionally, you can change the font weight of the placeholder */
-    color: #999; /* Optionally, you can change the color of the placeholder text */
+    font-weight: normal; 
+    color: #999; 
   }
   .button{
     height:5vh;
     width:15vh;
     position:relative;
     transform:translate(130%,140%);
-    /* margin: auto auto; */
-    border-radius: 1vh;
-    font-weight: 550;
-    font-size: large;
 
+    border-radius: 1vh;
+    font-weight: 500;
+    font-size: large;
+    
 
   }
+  
