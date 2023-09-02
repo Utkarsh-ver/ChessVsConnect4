@@ -83,7 +83,6 @@ const Login = () => {
 
     return (
         <body >
-            <div className='chess'></div>
             <div className='login'>
             <div className='circle'></div>
             <div className="name"><h2>FUSIONGRID</h2></div>
@@ -98,6 +97,9 @@ const Login = () => {
                 <button className='button' type="button" onClick={handleClick}>Login</button>
             </form>
             </div>
+            <div className="connect"></div>
+            <div className="conn"></div>
+            <div className="piece"></div>
             </body> 
     );
 }
