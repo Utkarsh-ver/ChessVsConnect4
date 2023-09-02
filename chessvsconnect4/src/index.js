@@ -5,7 +5,6 @@ import App from './App';
 import Home from './home';
 import Login from './Login';
 import Round from './round';
-import UserTurn from './userTurn';
 import {BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 
@@ -17,7 +16,6 @@ root.render(
         <Route exact path="/" element={<Login/>}></Route>
         <Route exact path="/round" element={<Round/>}></Route>
         <Route exact path="/home" element={<App/>}></Route>
-        <Route exact path="/userTurn" element={<UserTurn/>}></Route>
       </Routes>
     </Router>
   </React.StrictMode>
