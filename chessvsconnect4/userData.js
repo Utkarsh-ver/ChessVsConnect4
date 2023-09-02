@@ -28,7 +28,7 @@ const userSchema = new mongoose.Schema({
 		required:true,
 	},
 	board:{
-		type:String,
+		type:[[String]],
 		// required:true,
 	},
 	count_moves:{

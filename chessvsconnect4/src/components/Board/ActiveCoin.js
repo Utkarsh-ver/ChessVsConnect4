@@ -4,7 +4,7 @@ import { useAppContext } from '../../context/Context';
 // import userT from '../../userTurn'
 
 // console.log(userT);
-const ActiveMarble = ({ turn, dropped, setDropped, setTurn , userT , setUserT}) => {
+const ActiveMarble = ({ turn, dropped, setDropped, setTurn , userT , setUserT, setBoard}) => {
   const [column, setColumn] = useState(0);
   const [row, setRow] = useState();
   const [prevColumns, setPrevColumns] = useState(null);
@@ -15,7 +15,7 @@ const ActiveMarble = ({ turn, dropped, setDropped, setTurn , userT , setUserT}) 
 
 
   const getTurn = ()=>{
-    var requestData={"roll":localStorage.roll};
+    var requestData={roll:localStorage.roll};
     const response = fetch("http://127.0.0.1:5000/userTurn",{
         method: "POST", // *GET, POST, PUT, DELETE, etc.
         cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
@@ -35,7 +35,7 @@ const ActiveMarble = ({ turn, dropped, setDropped, setTurn , userT , setUserT}) 
     }).then((response)=>response.json()).then((data)=>{
         setUserT(data[0].userTurn);
         console.log(userT);
-        console.log("bc chal jaa")
+        // console.log("bc chal jaa")
     });
   }
   getTurn();
@@ -102,33 +102,33 @@ const ActiveMarble = ({ turn, dropped, setDropped, setTurn , userT , setUserT}) 
 
 
   //////////////////////////////////////
-const handleClick = async(event) => {
+// const handleClick = async(event) => {
 
-const requestData = {
-  dropped: dropped,
-};
+// const requestData = {
+//   dropped: dropped,
+// };
   
   
-  const response = await fetch("http://127.0.0.1:5000/login",{
-    method: "POST", // *GET, POST, PUT, DELETE, etc.
-    cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-    credentials: "include", // include, *same-origin, omit
-    mode: "cors", // no-cors, *cors, same-origin
-    headers: {
-      "Content-Type": "application/json"
-      //"Access-Control-Allow-Origin":"http://127.0.0.1:5000"
-      // 'Content-Type': 'application/x-www-form-urlencoded',
-    },
-    redirect: "manual", // manual, *follow, error
-    referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-    body: JSON.stringify(requestData), // body data
-  }).catch((error) => {
-    console.log(error);
-  });
+//   const response = await fetch("http://127.0.0.1:5000/login",{
+//     method: "POST", // *GET, POST, PUT, DELETE, etc.
+//     cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+//     credentials: "include", // include, *same-origin, omit
+//     mode: "cors", // no-cors, *cors, same-origin
+//     headers: {
+//       "Content-Type": "application/json"
+//       //"Access-Control-Allow-Origin":"http://127.0.0.1:5000"
+//       // 'Content-Type': 'application/x-www-form-urlencoded',
+//     },
+//     redirect: "manual", // manual, *follow, error
+//     referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+//     body: JSON.stringify(requestData), // body data
+//   }).catch((error) => {
+//     console.log(error);
+//   });
     
-  }
+//   }
   
-  handleClick();
+//   handleClick();
   //////////////////////////////////////
 
   return (
