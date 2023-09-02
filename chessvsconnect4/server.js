@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 // const User = require('./userData');
-const { handleUserLogin,handleUserget,handleUserResult } = require('./sign');
+const { handleUserLogin,handleUserget,handleUserResult,handleUserBoard } = require('./sign');
 // const ReactDOMServer = require('react-dom/server');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -45,11 +45,27 @@ app.post('/userTurn', (req,res)=>{
 }
 );
 
+app.post('/testing', (req,res)=>{
+	handleUserBoard(req,res);
+});
 
 app.post('/result', (req,res)=>{
     handleUserResult(req,res);
 }
 );
+
+// app.post('/testing',(req,res)=>{
+// 	(function(){
+// 		const user = new User();
+// 		user.roll = "siddhant"
+// 		user.pwd = "siddhant"
+// 		user.round1_room = "toto"
+// 		user.score = 0
+// 		user.count_moves = 0
+// 		user.save();
+// 	}())
+// })
+
 
 
 app.listen(PORT, () => {

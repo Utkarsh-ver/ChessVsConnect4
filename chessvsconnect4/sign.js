@@ -104,8 +104,59 @@ try {
 };
 
 
+async function handleUserBoard(req, res){
+    try {
+        // const result = await User.findOne({ roll: req.body.roll });
+        
+        // if(!result){
+        //     console.log('errrr')
+        //     return;
+        // }
+        // const result = User.updateOne({roll : req.body.roll},{$set:
+        //     {userTurn : 'noting'}
+        // })  
+        // console.log("Result:",result)
+            // const result = await User.findOne({ roll: req.body.roll });
+            // console.log(result);
+            // if (result) {
+            //     console.log(`hgjh Found a listing in the collection with the roll '${roll}':`);
+            //     // console.log(result.room);
+            // } else {
+            //     console.log(`No listings found with the roll '${roll}'`);
+            // }
+            const result = await User.findOneAndUpdate(
+                { roll: req.body.roll },
+                { board: req.body.board}, // Update "userTurn" with the new value
+                { new: true } // Return the updated document
+            );
+                console.log(result)
+            if (!result) {
+                console.log('User not found');
+                return;
+            }
+    
+        // console.log(`Matched ${result.matchedCount} document(s) and modified ${result.modifiedCount} document(s)`);
+        // console.log(req.body.board)
+        // console.log(result.board)
+
+        // result.save()
+        // console.log(JSON.parse(req.body).board);
+
+        res.status(200).json({
+            message: 'board saved'
+        })
+        // board.save();
+    
+    } catch (error) {
+        res.status(400).json({ message: error.message });
+    }
+    };
+
+
+
 module.exports = {
     handleUserLogin,
     handleUserget,
-    handleUserResult
+    handleUserResult,
+    handleUserBoard
 }

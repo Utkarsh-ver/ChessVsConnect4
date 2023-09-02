@@ -6,7 +6,13 @@ import { reducer } from './reducer/reducer';
 import { initGameState } from './constant';
 import { io } from "socket.io-client";
 // import UserTurn from './userTurn';
-// import { messageContainer } from "https://cdn.socket.io/socket.io-3.0.1.min.js";   
+// import { messageContainer } from "https://cdn.socket.io/socket.io-3.0.1.min.js";  
+
+
+// const board = appState.position[appState.position.length-1];
+// console.log(board);
+
+// console.log(localStorage.board); 
 
 /////////////////////////////Socket.io///////////////////////
 const socket= io("http://localhost:5050");
@@ -16,7 +22,13 @@ const socket= io("http://localhost:5050");
         const round = localStorage.round
         console.log(localStorage.roll)
         console.log(`user joined ${roll}`);
+        
+        
+        // const board = position.position;
+        // console.log(board);
         socket.emit('new-user-joined',roll,round);
+        // socket.emit('board',board)
+        
         // socket.on('message',(data)=>{
         //     document.querySelector('h2').innerHTML=data
         // })
@@ -26,6 +38,7 @@ const socket= io("http://localhost:5050");
         // socket.on('user-joined',roll=>{
         // append(`${roll}`)
         // })
+        
         const sendMessage=()=>{
             const messageInput=document.querySelector('.message')
             const message=messageInput.value
@@ -59,12 +72,19 @@ const socket= io("http://localhost:5050");
 ///////////////////End of Socket.io/////////////////////////
 function App() {
   const [appState, dispatch] = useReducer(reducer, initGameState);
+  
 
   const providerState = {
     appState,
     dispatch,
   };
   const {turn}=appState;
+  // console.log(appState.position[appState.position.length-1]);
+  const board = appState.position[appState.position.length-1];
+  
+  // console.log(board);
+
+  // socket.emit("board",localStorage.board);x
 
   return (
     <AppContext.Provider value={providerState}>
