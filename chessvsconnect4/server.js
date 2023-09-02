@@ -8,8 +8,8 @@ const cors = require('cors');
 const PORT = process.env.PORT || 5000;
 const app = express();
 const por = process.env.PORT || 5050;
- const server = app.listen(por, console.log("server started at port: " + por));
- const io = require("socket.io")(server, { cors: { origin: "*" } });
+const server = app.listen(por, console.log("server started at port: " + por));
+const io = require("socket.io")(server, { cors: { origin: "*" } });
 const User = require('./userData');
 
 const corsOpts = {
@@ -169,71 +169,88 @@ app.use(bodyParser.json());
 
 
 //******************Database connection***************//
-const users = {};
+// let users = {};
+
 
 io.on("connection", (socket) => {
-
+	let run = false
+    socket.on('checkermove',async (newPosition,roll,round)=>{
+        
+		// console.log(room)
+		const room = await findOneListingByRound(roll,round);
+		// console.log(room)
+		console.log('checker')
+        console.log(newPosition)
+        io.to(room).emit("cm",newPosition,(er)=>{
+			console.log(er)
+		})
+    });
+    socket.on('chessmove',async (newPosition,roll,round)=>{
+		
+		// console.log(room)
+		const room = await findOneListingByRound(roll,round);
+		// console.log(room)
+        console.log('chess')
+        console.log(newPosition)
+        io.to(room).emit("chessmove",newPosition,(er)=>{
+			console.log(er)
+		})
+    })
+	socket.on('finalCount',async (count,roll,winner)=>{
+		// console.log(count)
+		if(run)return;
+		run = true;
+		var win;
+		if(winner === 'b'){
+			win = 'chess'
+		}else{
+			win = 'connect4'
+		}
+		try{
+		const result =await User.updateOne({roll:roll},{$push:{moves:count , winner:win}})
+		// console.log(result);
+		}catch(err){
+			console.log(err);
+		}
+		console.log('Loading ....');
+	})
 	socket.on("new-user-joined", async (roll,round) => {
 		console.log("New user: ", roll);
 		// console.log("User Connected: "+ socket.id);
-		users[socket.id] = roll;
 		// const room = await findOneListingByRoll(roll);
 		const room = await findOneListingByRound(roll,round);
-		console.log("Room: ", room);
-		socket.join(room);
-		roomSize = io.sockets.adapter.rooms.get(room).size;
+		// users[socket.id] = room;
+		// console.log("Room: ", room);
+		// console.log(room)
+		// localStorage.room = room;
+		await socket.join(room);
+		// console.log(await io.sockets.adapter.rooms)
+		const roomSize = await io.sockets.adapter.rooms.get(room).size;
 		console.log(room + ":" + roomSize);
-		io.to(room).emit("user-joined", roomSize);
-		socket.on("message", (data) => {
-			console.log(users[socket.id] + ": " + data);
-			io.to(room).emit("message", data);
-			updateListingByRoom(room, { message: data });
-		});
-		socket.on("score", (data) => {
-			console.log(data);
-			// io.to(room).emit('message',data)
-			updateListingByRoll(users[socket.id], { score: data });
-		});
-		socket.on("move", (data) => {
-			console.log(data);
-			socket.to(room).emit("move", data);
-			updateMoveByRoll(users[socket.id], { move: data });
-		});
-		socket.on("board", (data) => {
-			console.log(data);
-			updateListingByRoom(room, { board: data });
-		});
-		socket.on("winner", (data) => {
-			console.log(data);
-			updateListingByRoll(users[socket.id], { winner: data });
-		});
+		io.to(room).emit("user-joined");
 	});
 });
 
-const updateListingByRoom = async (roomName, updatedListing) => {
-	const result = await User.updateMany({ room: roomName }, { $set: updatedListing });
-	// console.log(`${result.matchedCount} document(s) matched the query criteria.`);
-	console.log(`${result.modifiedCount} document(s) was/were updated.`);
-};
-const updateListingByRoll = async (rollno, updatedListing) => {
-	const result = await User.updateOne({ roll: rollno }, { $set: updatedListing });
-	// console.log(`${result.matchedCount} document(s) matched the query criteria.`);
-	console.log(`${result.modifiedCount} document(s) was/were updated.`);
-};
-const updateMoveByRoll = async (rollno, updatedListing) => {
-	const result = await User.updateOne({ roll: rollno }, { $push: updatedListing });
-	// console.log(`${result.matchedCount} document(s) matched the query criteria.`);
-	console.log(`${result.modifiedCount} document(s) was/were updated.`);
-};
-
 const findOneListingByRound = async (roll,round) => {
+	console.log('here')
 	const result = await User.findOne({ roll: roll });
-    let response=0;
+    let response="";
     console.log("Round: ",round)
-    if(round == "1"){
-        // console.log("mc")
-        response = result.round1_room; 
-    }
+	if(round === null)return;
+	if(round === "1"){
+		response = result.round1_room;
+	}else if(round === "2"){
+		response = result.round2_room;
+	}else if(round === "3"){
+		response = result.round3_room;
+	}else{
+		response = result.round4_room;
+	}
+	console.log(response)
+    // if(round === "1"){
+    //     // console.log("mc")
+    //     response = result.round1_room; 
+    // }
 	// console.log(response);
 	if (result) {
 		console.log(`Found a listing in the collection with the roll '${roll}':`);

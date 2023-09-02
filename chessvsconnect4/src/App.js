@@ -22,7 +22,9 @@ const socket= io("http://localhost:5050");
         const round = localStorage.round
         console.log(localStorage.roll)
         console.log(`user joined ${roll}`);
-        
+        socket.on('user-joined',async ()=>{
+          console.log("User Joined")
+        })
         
         // const board = position.position;
         // console.log(board);
@@ -78,9 +80,9 @@ function App() {
     appState,
     dispatch,
   };
-  const {turn}=appState;
-  // console.log(appState.position[appState.position.length-1]);
-  const board = appState.position[appState.position.length-1];
+  // const {turn}=appState;
+  // // console.log(appState.position[appState.position.length-1]);
+  // const board = appState.position[appState.position.length-1];
   
   // console.log(board);
 
@@ -89,7 +91,9 @@ function App() {
   return (
     <AppContext.Provider value={providerState}>
       <div className="App">
-        <Board />
+        <Board 
+        socket={socket}
+        />
         
       </div>
     </AppContext.Provider>

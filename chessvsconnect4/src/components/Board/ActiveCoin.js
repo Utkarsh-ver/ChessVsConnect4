@@ -1,18 +1,29 @@
 import {useState,useEffect} from 'react'
 import { useAppContext } from '../../context/Context';
+import {io} from 'socket.io-client';
 // import UserTurn from '../../userTurn';
 // import userT from '../../userTurn'
 
-// console.log(userT);
-const ActiveMarble = ({ turn, dropped, setDropped, setTurn , userT , setUserT, setBoard}) => {
+// const socket = io('http://localhost:5050');
+
+const ActiveMarble = ({ turn, dropped, setDropped, setTurn , userT , setUserT,socket}) => {
   const [column, setColumn] = useState(0);
   const [row, setRow] = useState();
   const [prevColumns, setPrevColumns] = useState(null);
   const { appState } = useAppContext();
 
-  
   var position = appState.position[appState.position.length - 1];
-
+  
+  socket.on("cm",async (newPosition)=>{
+    
+    console.log('huahuahua')
+    const curr = newPosition[newPosition.length - 1];
+    const len = curr.x;
+    const column = curr.y;
+    position[7 - len][(column || 0)] = 'c';
+    setDropped(newPosition);
+    setTurn('b');
+  })
 
   const getTurn = ()=>{
     var requestData={roll:localStorage.roll};
@@ -33,16 +44,13 @@ const ActiveMarble = ({ turn, dropped, setDropped, setTurn , userT , setUserT, s
     }).catch((error) => {
         console.log(error);
     }).then((response)=>response.json()).then((data)=>{
-        setUserT(data[0].userTurn);
+        var round = localStorage.round;
+        setUserT(data[0].userTurn[round-1]);
         console.log(userT);
         // console.log("bc chal jaa")
     });
   }
   getTurn();
-  // console.log(userT)
-   
-
-
 
   const handleKeyDown = (e) => {
     if (turn === 'b' && userT==="chess") {
@@ -82,6 +90,8 @@ const ActiveMarble = ({ turn, dropped, setDropped, setTurn , userT , setUserT, s
               ...dropped,
               { x: len || 0, y: column || 0, player: turn },
             ];
+
+            socket.emit('checkermove',newPosition,localStorage.roll,localStorage.round);
 
             setDropped(newPosition);
           }, 100);

@@ -1,35 +1,9 @@
 const User = require('./userData');
 const mongoose = require('mongoose');
 
-// async function handleUserSignup(req, res) {
-//     const { roll, pwd, room } = req.body;
-//     await User.create({
-//         roll,
-//         pwd,
-//         room,
-//     });
-//     return res.render("home");
-// }
-// const userSchema = new mongoose.Schema({
-//     // Define schema fields here
-//     roll: {
-// 		type: String,
-// 		required: true,
-// 		unique: true,
-// 	},
-// 	pwd: {
-// 		type: String,
-// 		required: true,
-// 	}
-//   });
-  
-//   const User = mongoose.model('User', userSchema);
-  
-//   module.exports = User;
-
 async function handleUserLogin(req,res) {
-    roll = req.body.roll;
-    pwd = req.body.pwd;
+    const roll = req.body.roll;
+    const pwd = req.body.pwd;
     // console.log("yaha aa raha hai")
     const user = await User.findOne({
         roll,
@@ -41,7 +15,7 @@ async function handleUserLogin(req,res) {
         })
     }else {
         // console.log(res);
-        console.log("hii")
+        // console.log("hii")
         res.status(200).json({
             message: "Login successful",
             user,
@@ -57,106 +31,9 @@ async function handleUserget(req, res){
     } catch (error) {
       res.status(400).json({ message: error.message });
     }
-  }
-
-
-async function handleUserResult(req, res){
-try {
-    const result = await User.findOne({ roll: localStorage.roll });
-    // const users = await User.find({
-    // roll : localStorage.roll,
-    // });
-    // let response=0;
-    const round = result.round;
-
-    if(winner == "b" && round == "1"){
-        result.round1_winner = "chess";
-    } else if(winner == "w" && round == "1"){
-        result.round1_winner = "connect4";
-    }
-
-    if(winner == "b" && round == "2"){
-        result.round2_winner = "chess";
-    } else if(winner == "w" && round == "2"){
-        result.round2_winner = "connect4";
-    }
-
-    if(winner == "b" && round == "3"){
-        result.round3_winner = "chess";
-    } else if(winner == "w" && round == "3"){
-        result.round3_winner = "connect4";
-    }
-
-    if(winner == "b" && round == "4"){
-        result.round4_winner = "chess";
-    } else if(winner == "w" && round == "4"){
-        result.round4_winner = "connect4";
-    }
-
-    // console.log(users.round1_winner);
-    // //users.winners.push(req.params.winner);
-    // console.log(users);
-    // res.status(201).json(users);
-
-} catch (error) {
-    res.status(400).json({ message: error.message });
 }
-};
-
-
-async function handleUserBoard(req, res){
-    try {
-        // const result = await User.findOne({ roll: req.body.roll });
-        
-        // if(!result){
-        //     console.log('errrr')
-        //     return;
-        // }
-        // const result = User.updateOne({roll : req.body.roll},{$set:
-        //     {userTurn : 'noting'}
-        // })  
-        // console.log("Result:",result)
-            // const result = await User.findOne({ roll: req.body.roll });
-            // console.log(result);
-            // if (result) {
-            //     console.log(`hgjh Found a listing in the collection with the roll '${roll}':`);
-            //     // console.log(result.room);
-            // } else {
-            //     console.log(`No listings found with the roll '${roll}'`);
-            // }
-            const result = await User.findOneAndUpdate(
-                { roll: req.body.roll },
-                { board: req.body.board}, // Update "userTurn" with the new value
-                { new: true } // Return the updated document
-            );
-                console.log(result)
-            if (!result) {
-                console.log('User not found');
-                return;
-            }
-    
-        // console.log(`Matched ${result.matchedCount} document(s) and modified ${result.modifiedCount} document(s)`);
-        // console.log(req.body.board)
-        // console.log(result.board)
-
-        // result.save()
-        // console.log(JSON.parse(req.body).board);
-
-        res.status(200).json({
-            message: 'board saved'
-        })
-        // board.save();
-    
-    } catch (error) {
-        res.status(400).json({ message: error.message });
-    }
-    };
-
-
 
 module.exports = {
     handleUserLogin,
     handleUserget,
-    handleUserResult,
-    handleUserBoard
 }

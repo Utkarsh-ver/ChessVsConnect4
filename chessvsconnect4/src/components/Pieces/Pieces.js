@@ -4,7 +4,11 @@ import {useState,useRef} from 'react'
 import { createPosition,copyPosition}  from '../../helper.js'
 import { clearCandidates, makeNewMove } from '../../reducer/actions/move'
 import { useAppContext } from '../../context/Context'
-const  Pieces=({turn,setTurn,dropped,setDropped,userT,setUserT})=>{
+import {io} from 'socket.io-client'
+
+// const socket = io('http://localhost:5050');
+
+const  Pieces=({turn,setTurn,dropped,setDropped,userT,setUserT,socket})=>{
     
     const ref=useRef()
     const {appState,dispatch}=useAppContext()
@@ -18,9 +22,24 @@ const  Pieces=({turn,setTurn,dropped,setDropped,userT,setUserT})=>{
 
     }
     
+    socket.on('chessmove',(newPosition)=>{
+      console.log('Chess Move Started')
+      dispatch(makeNewMove({newPosition}))
+      var temp_dropped = []
+      for(var i=0;i<newPosition.length;i++){
+        for(var j = 0;j<newPosition[0].length;j++){
+          if(newPosition[i][j] === 'c'){
+            temp_dropped = [
+              ...temp_dropped,
+              { x: 7-i || 0, y: j, player: 'w' }
+            ]
+          }
+        }
+      }
+      setDropped(temp_dropped);
+      setTurn('w');
+    })
 
-
-    
 
     const onDrop=e=>{
         if(turn === 'w' || userT === 'connect4')return;
@@ -57,6 +76,8 @@ const  Pieces=({turn,setTurn,dropped,setDropped,userT,setUserT})=>{
             setTurn('w')
             console.log(turn)
         }
+        
+        socket.emit('chessmove',newPosition,localStorage.roll,localStorage.round)
 
         dispatch(clearCandidates())
         var temp_dropped = []

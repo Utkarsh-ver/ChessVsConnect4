@@ -27,32 +27,22 @@ const userSchema = new mongoose.Schema({
 		type:Number,
 		required:true,
 	},
-	board:{
-		type:[[String]],
-		// required:true,
-	},
-	count_moves:{
-		type:Number,
+	// board:{
+	// 	type:[[String]],
+	// 	// required:true,
+	// },
+	moves:{
+		type:Array,
 		required:true,
 	},
-	round1_winner:{
-		type:String,
-		// required:true,
+	count:{
+		type:Number,
 	},
-	round2_winner:{
-		type:String,
-		// required:true,
-	},
-	round3_winner:{
-		type:String,
-		// required:true,
-	},
-	round4_winner:{
-		type:String,
-		// required:true,
+	winner:{
+		type:[String],
 	},
 	userTurn:{
-		type: String,
+		type: [String],
 	},
 });
 

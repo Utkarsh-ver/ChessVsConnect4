@@ -47,7 +47,7 @@ const Login = () => {
         navigate('/home')
         localStorage.roll = roll;
         localStorage.pwd = pwd;
-        localStorage.round = round;
+        localStorage.round =round;
         // console.log(JSON.parse(response.body));
     }
     if(response.status === 204){
