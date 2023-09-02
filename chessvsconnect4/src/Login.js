@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {useNavigate} from 'react-router-dom';
+import './login.css'
 
 const Login = () => {
     const [roll,setRoll]=useState('');
@@ -80,20 +81,24 @@ const Login = () => {
     //     });
 
 
-    return ( 
-            <div>
-                <h1>Login</h1>
-            <form>
-                <label>Roll Number</label>
-                <input value={roll} onChange={(e)=> setRoll(e.target.value)} type="text" required name="roll" />
-                <label>Password</label>
-                <input value={pwd} onChange={(e)=> setPwd(e.target.value)} type="text" required name="pwd" />
-                <label>Round</label>
-                <input value={round} onChange={(e)=> setRound(e.target.value)} type="text" required name="round" />
+    return (
+        <body >
+            <div className='chess'></div>
+            <div className='login'>
+            <div className='circle'></div>
+            <div className="name"><h2>FUSIONGRID</h2></div>
+            <form >
+                <label ></label>
+                <input className='rollno' placeholder='Roll No.' value={roll} onChange={(e)=> setRoll(e.target.value)} type="text" required name="roll" />
+                <label></label>
+                <input className='password' placeholder='Password' value={pwd} onChange={(e)=> setPwd(e.target.value)} type="text" required name="pwd" />
+                <label ></label>
+                <input className='round' placeholder='Round No.' value={round} onChange={(e)=> setRound(e.target.value)} type="text" required name="round" />
 
-                <button type="button" onClick={handleClick}>Login</button>
+                <button className='button' type="button" onClick={handleClick}>Login</button>
             </form>
             </div>
+            </body> 
     );
 }
 

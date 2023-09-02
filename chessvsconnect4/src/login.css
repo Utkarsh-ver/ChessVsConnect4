@@ -1,0 +1,133 @@
+body {
+    background-image: url("D:\bg-4.png");
+    background-size: cover; 
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+
+  }
+  .chess{
+    height:5vh;
+    width:5vh;
+    background-image: url("D:\king.jpeg");
+
+  }
+.login {
+    height: 70vh;
+    width: 55vh;
+    border-radius: 2vh;
+    border: solid 2px #131313;
+    background-color: #353434c8;
+    box-shadow: 0px 0px 90px 4px  #969493;;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    cursor:auto;
+    position: relative;
+    top: 50%;
+    left: 25%;
+    transform: translate(-50%, 20%); 
+
+  }
+  
+  .circle{
+    height:16vh;
+    width:16vh;
+    position: relative;
+    border-radius: 50%;
+    background-size: 90%; /* Fit the image perfectly within the circle */
+    background-repeat: no-repeat;
+    background-color: #edc148;
+    background-image: url("./assets/connect.png");
+    transform: translate(-0%,-24%);
+    
+  }
+
+  .name{
+    transform: translate(-0%, -50%);
+    user-select: none;
+    font-weight: 600;
+    font-size: 2.8vh;
+    text-shadow: -1px -1px 1px #000, 1px -1px 1px #000, -1px 1px 1px #000, 1px 1px 1px #000;
+  }
+  
+  form{
+    transform: translate(-0%,-10%);
+  }
+  
+  .rollno{
+    position: relative;
+    height:6vh;
+    width:46vh;
+    background-color:  #fff;
+    border-radius: 2vh;
+    cursor: text;
+    transform: translate(6%,-30%);
+   
+    font-weight: 400;
+    font-size: large;
+    padding-left: 2vh;
+    
+  }
+
+
+
+  .rollno::placeholder {
+    
+    font-weight: normal;
+    font-size: large; /* Optionally, you can change the font weight of the placeholder */
+    color: #999; /* Optionally, you can change the color of the placeholder text */
+  }
+ 
+  .password{
+    position: relative;
+    height:6vh;
+    width:46vh;
+    background-color:  #fff;
+    border-radius: 2vh;
+    cursor: text;
+    transform: translate(6%,0%);
+    
+    font-weight: 600;
+    font-size: large;
+    padding-left: 2vh;
+  }
+  .password::placeholder {
+    
+    font-weight: normal; /* Optionally, you can change the font weight of the placeholder */
+    color: #999; /* Optionally, you can change the color of the placeholder text */
+  }
+
+  .round{
+    position: relative;
+    height:6vh;
+    width:46vh;
+    background-color:  #fff;
+    border-radius: 2vh;
+    cursor: text;
+    transform: translate(6%,30%);
+    
+    font-weight: 400;
+    font-size: large;
+    padding-left: 2vh;
+  }
+  .round::placeholder {
+    
+    font-weight: normal; /* Optionally, you can change the font weight of the placeholder */
+    color: #999; /* Optionally, you can change the color of the placeholder text */
+  }
+  .button{
+    height:5vh;
+    width:15vh;
+    position:relative;
+    transform:translate(130%,140%);
+    /* margin: auto auto; */
+    border-radius: 1vh;
+    font-weight: 550;
+    font-size: large;
+
+
+  }
