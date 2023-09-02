@@ -29,7 +29,6 @@ export const copyPosition=position=>{
     for(let rank=0;rank<8;rank++){
         for (let file = 0; file < 8; file++) {
             newPosition[rank][file] = position[rank][file];
-            
         }
     }
     return newPosition
