@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const PORT = process.env.PORT || 5000;
 const app = express();
-const por = process.env.PORT || 5050;
+const por = process.env.PORT || 5000;
 const server = app.listen(por, console.log("server started at port: " + por));
 const io = require("socket.io")(server, { cors: { origin: "*" } });
 const User = require('./userData');
@@ -93,8 +93,6 @@ app.listen(PORT, () => {
 const dbURI = 'mongodb+srv://shubhkj275:skumarj275@nodetuts.dp8genc.mongodb.net/users?retryWrites=true&w=majority';
 
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then((result) => 
-	app.listen(5000))
     .catch((err) => 
 	console.log(err));
 
