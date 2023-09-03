@@ -6,7 +6,7 @@ import { reducer } from './reducer/reducer';
 import { initGameState } from './constant';
 import { io } from "socket.io-client";
 // import UserTurn from './userTurn';
-// import { messageContainer } from "https://cdn.socket.io/socket.io-3.0.1.min.js";  
+// import { messageContainer } from "https://cdn.socket.io/socket.io.io-3.0.1.min.js";  
 
 
 // const board = appState.position[appState.position.length-1];
@@ -14,8 +14,8 @@ import { io } from "socket.io-client";
 
 // console.log(localStorage.board); 
 
-/////////////////////////////Socket.io///////////////////////
-const socket= io("/socket");
+/////////////////////////////socket.io.io///////////////////////
+const socket= io("/socket.io");
         socket.on('connection')
         // const roll= prompt('Enter Your Roll no. to join');
         const roll = localStorage.roll
