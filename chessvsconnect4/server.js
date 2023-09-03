@@ -7,9 +7,10 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const PORT = process.env.PORT || 5000;
 const app = express();
-const por = process.env.PORT || 5000;
-const server = app.listen(por, console.log("server started at port: " + por));
-const io = require("socket.io")(server, { cors: { origin: "*" } });
+// const por = process.env.PORT || 5000;
+const http = require('http').Server(app)
+// const server = app.listen(por, console.log("server started at port: " + por));
+const io = require("socket.io")(http);
 const User = require('./userData');
 
 const corsOpts = {
@@ -251,3 +252,7 @@ const findOneListingByRound = async (roll,round) => {
 	}
 	return response;
 };
+
+const server = http.listen(5000, () => {
+	console.log(`Server running at ${PORT}`)
+})
