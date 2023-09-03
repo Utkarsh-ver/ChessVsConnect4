@@ -93,8 +93,10 @@ app.listen(PORT, () => {
 const dbURI = 'mongodb+srv://shubhkj275:skumarj275@nodetuts.dp8genc.mongodb.net/users?retryWrites=true&w=majority';
 
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then((result) => app.listen(3001))
-    .catch((err) => console.log(err));
+    .then((result) => 
+	app.listen(5000))
+    .catch((err) => 
+	console.log(err));
 
 app.use(express.urlencoded({ extended: false }));
 
