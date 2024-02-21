@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import '../../constants.css';
 import ActiveCoin from './ActiveCoin';
 import './DropZone.css';
-
-
-const DropZone = ({turn,setTurn,dropped,setDropped,winner,setWinner,userT,setUserT,socket}) => {
-
+// import { useContext } from 'react';
+// import { SocketContext } from '../../context/Context';
+const DropZone = ({turn,setTurn,dropped,setDropped,winner,setWinner,userT,setUserT}) => {
+  // const socket = useContext(SocketContext);
 
   const root = document.documentElement;
   const size = getComputedStyle(root).getPropertyValue('--size').trim();
@@ -45,7 +45,7 @@ const DropZone = ({turn,setTurn,dropped,setDropped,winner,setWinner,userT,setUse
         setWinner('b')
      findWinner()
 
-  },[dropped])
+  })
   return (
     <div className='drop-zone'>
       {
@@ -67,7 +67,6 @@ const DropZone = ({turn,setTurn,dropped,setDropped,winner,setWinner,userT,setUse
       setTurn={setTurn}
       userT = {userT}
       setUserT={setUserT}
-      socket={socket}
       />
 
     </div>

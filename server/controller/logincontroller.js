@@ -1,4 +1,4 @@
-const User = require('./userData');
+const User = require('../models/user');
 const mongoose = require('mongoose');
 
 async function handleUserLogin(req,res) {
@@ -24,16 +24,5 @@ async function handleUserLogin(req,res) {
 
     // return res.render("home");
 }
-async function handleUserget(req, res){
-    try {
-      const users = await User.find(req.body);
-      res.status(201).json(users);
-    } catch (error) {
-      res.status(400).json({ message: error.message });
-    }
-}
 
-module.exports = {
-    handleUserLogin,
-    handleUserget,
-}
+module.exports = handleUserLogin;

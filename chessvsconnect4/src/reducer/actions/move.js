@@ -21,3 +21,10 @@ export const clearCandidates=()=>{
     }
 }
 
+export const NewGame=()=>{
+    return{
+        type:actionTypes.NEW_GAME,
+        
+    }
+}
+

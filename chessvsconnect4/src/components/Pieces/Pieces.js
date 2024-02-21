@@ -1,17 +1,18 @@
 import './Pieces.css'
 import Piece from './Piece'
-import {useState,useRef} from 'react'
+import {useState,useRef,useContext, useEffect} from 'react'
 import { createPosition,copyPosition}  from '../../helper.js'
 import { clearCandidates, makeNewMove } from '../../reducer/actions/move'
-import { useAppContext } from '../../context/Context'
-import {io} from 'socket.io-client'
+import { useAppContext,SocketContext } from '../../context/Context'
+// import {io} from 'socket.io-client'
 
 // const socket = io('http://localhost:5050');
 
-const  Pieces=({turn,setTurn,dropped,setDropped,userT,setUserT,socket})=>{
+const  Pieces=({turn,setTurn,dropped,setDropped,userT,setUserT})=>{
     
     const ref=useRef()
     const {appState,dispatch}=useAppContext()
+    const socket = useContext(SocketContext);
     const currentPosition=appState.position[appState.position.length-1]
     const calculateCoords=e=>{
         const{width,left,top}=ref.current.getBoundingClientRect()
@@ -21,24 +22,29 @@ const  Pieces=({turn,setTurn,dropped,setDropped,userT,setUserT,socket})=>{
         return{x,y}
 
     }
-    
-    socket.on('chessmove',(newPosition)=>{
-      console.log('Chess Move Started')
-      dispatch(makeNewMove({newPosition}))
-      var temp_dropped = []
-      for(var i=0;i<newPosition.length;i++){
-        for(var j = 0;j<newPosition[0].length;j++){
-          if(newPosition[i][j] === 'c'){
-            temp_dropped = [
-              ...temp_dropped,
-              { x: 7-i || 0, y: j, player: 'w' }
-            ]
+    useEffect(()=>{
+      socket.on('chssmove',(newPosition)=>{
+        console.log('Chess Move Started')
+        dispatch(makeNewMove({newPosition}))
+        console.log(newPosition);
+        var temp_dropped = []
+        for(var i=0;i<newPosition.length;i++){
+          for(var j = 0;j<newPosition[0].length;j++){
+            if(newPosition[i][j] === 'c'){
+              temp_dropped = [
+                ...temp_dropped,
+                { x: 7-i || 0, y: j, player: 'w' }
+              ]
+            }
           }
         }
+        setDropped(temp_dropped);
+        setTurn('w');
+      })
+      return()=>{
+        socket.off("chssmove")
       }
-      setDropped(temp_dropped);
-      setTurn('w');
-    })
+    });
 
 
     const onDrop=e=>{
@@ -77,7 +83,7 @@ const  Pieces=({turn,setTurn,dropped,setDropped,userT,setUserT,socket})=>{
             console.log(turn)
         }
         
-        socket.emit('chessmove',newPosition,localStorage.roll,localStorage.round)
+        socket.emit('chessmove',newPosition,localStorage.roll,localStorage.roomNo);
 
         dispatch(clearCandidates())
         var temp_dropped = []

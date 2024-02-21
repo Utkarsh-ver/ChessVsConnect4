@@ -1,6 +1,22 @@
 import actionTypes from "./actionTypes"
+import { createPosition } from "../helper";
 export const reducer=(state,action)=>{
     switch(action.type){
+        case actionTypes.NEW_GAME:{
+            let turn = 'b';
+            let position = [createPosition()];
+            let movesList = [];
+            let candidateMoves = [];
+
+            return{
+                turn,
+                movesList,
+                position,
+                candidateMoves,
+            }
+
+        }
+
         case actionTypes.NEW_MOVE:{
             
             

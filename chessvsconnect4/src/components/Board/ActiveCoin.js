@@ -1,56 +1,36 @@
-import {useState,useEffect} from 'react'
-import { useAppContext } from '../../context/Context';
+import {useState,useEffect,useContext} from 'react'
+import { useAppContext,SocketContext } from '../../context/Context';
 import {io} from 'socket.io-client';
 // import UserTurn from '../../userTurn';
 // import userT from '../../userTurn'
 
 // const socket = io('http://localhost:5050');
 
-const ActiveMarble = ({ turn, dropped, setDropped, setTurn , userT , setUserT,socket}) => {
+const ActiveMarble = ({ turn, dropped, setDropped, setTurn , userT , setUserT}) => {
   const [column, setColumn] = useState(0);
   const [row, setRow] = useState();
   const [prevColumns, setPrevColumns] = useState(null);
   const { appState } = useAppContext();
+  const socket = useContext(SocketContext);
 
   var position = appState.position[appState.position.length - 1];
-  
-  socket.on("cm",async (newPosition)=>{
+  useEffect(()=>{
+    socket.on("cm",async (newPosition)=>{
     
-    console.log('huahuahua')
-    const curr = newPosition[newPosition.length - 1];
-    const len = curr.x;
-    const column = curr.y;
-    position[7 - len][(column || 0)] = 'c';
-    setDropped(newPosition);
-    setTurn('b');
+      console.log('huahuahua')
+      const curr = newPosition[newPosition.length - 1];
+      const len = curr.x;
+      const column = curr.y;
+      position[7 - len][(column || 0)] = 'c';
+      setDropped(newPosition);
+      setTurn('b');
+    })
+    return ()=>{
+      socket.off("cm");
+    }
   })
-
-  const getTurn = ()=>{
-    var requestData={roll:localStorage.roll};
-    const response = fetch("http://127.0.0.1:5000/userTurn",{
-        method: "POST", // *GET, POST, PUT, DELETE, etc.
-        cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-        credentials: "include", // include, *same-origin, omit
-        mode: "cors", // no-cors, *cors, same-origin
-        headers: {
-          "Content-Type": "application/json"
-          //"Access-Control-Allow-Origin":"http://127.0.0.1:5000"
-          // 'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        redirect: "manual", // manual, *follow, error
-        referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-        body: JSON.stringify(requestData), // body data
-
-    }).catch((error) => {
-        console.log(error);
-    }).then((response)=>response.json()).then((data)=>{
-        var round = localStorage.round;
-        setUserT(data[0].userTurn[round-1]);
-        console.log(userT);
-        // console.log("bc chal jaa")
-    });
-  }
-  getTurn();
+  
+  setUserT(localStorage.userplay);//chess or connect4
 
   const handleKeyDown = (e) => {
     if (turn === 'b' && userT==="chess") {
@@ -91,7 +71,7 @@ const ActiveMarble = ({ turn, dropped, setDropped, setTurn , userT , setUserT,so
               { x: len || 0, y: column || 0, player: turn },
             ];
 
-            socket.emit('checkermove',newPosition,localStorage.roll,localStorage.round);
+            socket.emit('checkermove',newPosition,localStorage.roll,localStorage.roomNo);
 
             setDropped(newPosition);
           }, 100);

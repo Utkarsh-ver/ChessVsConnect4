@@ -27,7 +27,7 @@ body {
     transform: translate(-50%, 20%); 
 
   }
-  .piece{
+  .piecee{
     background-image: url("./assets/piece.png");
     height:50vh;
     width:60vh;
@@ -37,7 +37,7 @@ body {
     
     
   }
-  .connect{
+  .connecte{
     background-image: url("./assets/conn.png");
     background-size: cover; 
     background-repeat: no-repeat;
@@ -47,7 +47,7 @@ body {
     margin-left: 50%;
     transform: rotate(-30deg);
   }
-  .conn{
+  .conne{
     background-image: url("./assets/sdfh.png");
     background-size: cover; 
     background-repeat: no-repeat;
@@ -59,7 +59,7 @@ body {
   }
   
   
-  .circle{
+  .circlee{
     height:16vh;
     width:16vh;
     position: relative;
