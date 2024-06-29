@@ -19,6 +19,8 @@ Clone the repo and the submodules
 git clone --recurse-submodules https://github.com/Utkarsh-ver/ChessVsConnect4.git
 ```
 
+Change branch to branch3
+
 Install the requirements
 in chessvsconnect4 and server folder run
 ```
