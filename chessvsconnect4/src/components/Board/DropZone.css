@@ -3,7 +3,7 @@
   position: relative;
   left:calc(var(--tile-size)*.25);
   place-content: center;
-  top:-8%;
+  top:-15.5%;
  
 }
 
